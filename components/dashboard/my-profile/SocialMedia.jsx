@@ -1,9 +1,15 @@
+'use client'
+
+import { useTranslations } from 'next-intl';
+
 const SocialMedia = () => {
+  const t = useTranslations('dashboard');
+
   return (
     <div className="row">
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExampleSkype">Skype</label>
+          <label htmlFor="formGroupExampleSkype">{t('skype')}</label>
           <input
             type="text"
             className="form-control"
@@ -16,7 +22,7 @@ const SocialMedia = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExampleWebsite">Website</label>
+          <label htmlFor="formGroupExampleWebsite">{t('website')}</label>
           <input
             type="text"
             className="form-control"
@@ -29,7 +35,7 @@ const SocialMedia = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExampleFaceBook">Facebook</label>
+          <label htmlFor="formGroupExampleFaceBook">{t('facebook')}</label>
           <input
             type="text"
             className="form-control"
@@ -41,7 +47,7 @@ const SocialMedia = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExampleTwitter">Twitter</label>
+          <label htmlFor="formGroupExampleTwitter">{t('twitter')}</label>
           <input
             type="text"
             className="form-control"
@@ -53,7 +59,7 @@ const SocialMedia = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExampleLinkedin">Linkedin</label>
+          <label htmlFor="formGroupExampleLinkedin">{t('linkedin')}</label>
           <input
             type="text"
             className="form-control"
@@ -65,7 +71,7 @@ const SocialMedia = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExampleInstagram">Instagram</label>
+          <label htmlFor="formGroupExampleInstagram">{t('instagram')}</label>
           <input
             type="text"
             className="form-control"
@@ -77,7 +83,7 @@ const SocialMedia = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExampleGooglePlus">Google Plus</label>
+          <label htmlFor="formGroupExampleGooglePlus">{t('googlePlus')}</label>
           <input
             type="text"
             className="form-control"
@@ -89,7 +95,7 @@ const SocialMedia = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExampleYoutube">Youtube</label>
+          <label htmlFor="formGroupExampleYoutube">{t('youtube')}</label>
           <input
             type="text"
             className="form-control"
@@ -101,7 +107,7 @@ const SocialMedia = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExamplePinterest">Pinterest</label>
+          <label htmlFor="formGroupExamplePinterest">{t('pinterest')}</label>
           <input
             type="text"
             className="form-control"
@@ -113,7 +119,7 @@ const SocialMedia = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExampleVimeo">Vimeo</label>
+          <label htmlFor="formGroupExampleVimeo">{t('vimeo')}</label>
           <input
             type="text"
             className="form-control"
@@ -125,7 +131,7 @@ const SocialMedia = () => {
 
       <div className="col-xl-12 text-right">
         <div className="my_profile_setting_input">
-          <button className="btn btn2">Update Profile</button>
+          <button className="btn btn2">{t('updateProfile')}</button>
         </div>
       </div>
       {/* End .col */}

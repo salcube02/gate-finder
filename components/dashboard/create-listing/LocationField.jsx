@@ -1,9 +1,15 @@
+'use client'
+
+import { useTranslations } from 'next-intl';
+
 const LocationField = () => {
+  const t = useTranslations('dashboard');
+
   return (
     <>
       <div className="col-lg-12">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="propertyAddress">Address</label>
+          <label htmlFor="propertyAddress">{t('address')}</label>
           <input type="text" className="form-control" id="propertyAddress" />
         </div>
       </div>
@@ -11,7 +17,7 @@ const LocationField = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="propertyState">County / State</label>
+          <label htmlFor="propertyState">{t('countyState')}</label>
           <input type="text" className="form-control" id="propertyState" />
         </div>
       </div>
@@ -19,7 +25,7 @@ const LocationField = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="propertyCity">City</label>
+          <label htmlFor="propertyCity">{t('city')}</label>
           <input type="text" className="form-control" id="propertyCity" />
         </div>
       </div>
@@ -27,7 +33,7 @@ const LocationField = () => {
 
       <div className="col-lg-4 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="neighborHood">Neighborhood</label>
+          <label htmlFor="neighborHood">{t('neighborhood')}</label>
           <input type="text" className="form-control" id="neighborHood" />
         </div>
       </div>
@@ -35,7 +41,7 @@ const LocationField = () => {
 
       <div className="col-lg-4 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="zipCode">Zip</label>
+          <label htmlFor="zipCode">{t('zip')}</label>
           <input type="text" className="form-control" id="zipCode" />
         </div>
       </div>
@@ -43,7 +49,7 @@ const LocationField = () => {
 
       <div className="col-lg-4 col-xl-4">
         <div className="my_profile_setting_input ui_kit_select_search form-group">
-          <label>Country</label>
+          <label>{t('country')}</label>
           <select
             className="selectpicker form-select"
             data-live-search="true"
@@ -77,7 +83,7 @@ const LocationField = () => {
 
       <div className="col-lg-4 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="googleMapLat">Latitude (for Google Maps)</label>
+          <label htmlFor="googleMapLat">{t('latitudeForGoogleMaps')}</label>
           <input type="text" className="form-control" id="googleMapLat" />
         </div>
       </div>
@@ -85,7 +91,7 @@ const LocationField = () => {
 
       <div className="col-lg-4 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="googleMapLong">Longitude (for Google Maps)</label>
+          <label htmlFor="googleMapLong">{t('longitudeForGoogleMaps')}</label>
           <input type="text" className="form-control" id="googleMapLong" />
         </div>
       </div>
@@ -93,7 +99,7 @@ const LocationField = () => {
 
       <div className="col-lg-4 col-xl-4">
         <div className="my_profile_setting_input ui_kit_select_search form-group">
-          <label>Google Map Street View</label>
+          <label>{t('googleMapStreetView')}</label>
           <select
             className="selectpicker form-select"
             data-live-search="true"
@@ -112,8 +118,8 @@ const LocationField = () => {
 
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start">Back</button>
-          <button className="btn btn2 float-end">Next</button>
+          <button className="btn btn1 float-start">{t('back')}</button>
+          <button className="btn btn2 float-end">{t('next')}</button>
         </div>
       </div>
       {/* End .col */}

@@ -31,17 +31,17 @@ const Header = () => {
 
         <Link href="/" className="navbar_brand float-start dn-smd">
           <Image
-            width={150}
-            height={50}
+            width={200}
+            height={55}
             className="logo1 contain"
-            src="/assets/images/logo.svg"
+            src="/assets/images/logo-white.svg"
             alt="header-logo.png"
           />
           <Image
-            width={150}
-            height={50}
+            width={200}
+            height={55}
             className="logo2 contain"
-            src="/assets/images/logo.svg"
+            src="/assets/images/logo.png"
             alt="header-logo2.png"
           />
           {/* <span>FindHouse</span> */}

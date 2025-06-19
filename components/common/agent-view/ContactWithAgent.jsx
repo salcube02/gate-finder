@@ -1,4 +1,24 @@
+"use client"
+import { useTranslations } from 'next-intl';
+
 const ContactWithAgent = () => {
+  let t;
+  try {
+    t = useTranslations('contactWithAgent');
+  } catch (error) {
+    console.warn('Translation hook failed, using fallbacks:', error);
+    t = (key) => {
+      const fallbacks = {
+        'yourName': 'Your Name',
+        'phone': 'Phone',
+        'email': 'Email',
+        'yourMessage': 'Your Message',
+        'sendMessage': 'Send Message'
+      };
+      return fallbacks[key] || key;
+    };
+  }
+
   return (
     <form action="#">
       <ul className="sasw_list mb0">
@@ -7,7 +27,7 @@ const ContactWithAgent = () => {
             <input
               type="text"
               className="form-control"
-              placeholder="Your Name"
+              placeholder={t('yourName')}
               required
             />
           </div>
@@ -18,7 +38,7 @@ const ContactWithAgent = () => {
             <input
               type="number"
               className="form-control"
-              placeholder="Phone"
+              placeholder={t('phone')}
               required
             />
           </div>
@@ -29,7 +49,7 @@ const ContactWithAgent = () => {
             <input
               type="email"
               className="form-control"
-              placeholder="Email"
+              placeholder={t('email')}
               required
             />
           </div>
@@ -43,7 +63,7 @@ const ContactWithAgent = () => {
               className="form-control "
               rows="5"
               required
-              placeholder="Your Message"
+              placeholder={t('yourMessage')}
             ></textarea>
           </div>
         </li>{" "}
@@ -51,7 +71,7 @@ const ContactWithAgent = () => {
         <li>
           <div className="search_option_button">
             <button type="submit" className="btn btn-block btn-thm w-100">
-              Search
+              {t('sendMessage')}
             </button>
           </div>
         </li>{" "}

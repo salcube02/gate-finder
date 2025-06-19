@@ -2,10 +2,23 @@
 
 import Link from "next/link";
 import Slider from "react-slick";
-import properties from "../../data/properties";
+import propertiesEn from "../../data/properties";
 import Image from "next/image";
+import propertiesAr from "@/data/properties-ar";
+import { useState, useEffect } from 'react';
+
 
 const FeaturedProperties = () => {
+  const [currentLocale, setCurrentLocale] = useState('en');
+
+  useEffect(() => {
+    // Get the current language from localStorage or default to 'en'
+    const savedLocale = localStorage.getItem('preferredLanguage') || 'en';
+    setCurrentLocale(savedLocale);
+  }, []);
+
+  const propertiesLangList = currentLocale === 'ar' ? propertiesAr : propertiesEn;
+
   const settings = {
     dots: true,
     arrows: false,
@@ -31,7 +44,7 @@ const FeaturedProperties = () => {
     ],
   };
 
-  let content = properties?.slice(0, 12)?.map((item) => (
+  let content = propertiesLangList?.slice(0, 12)?.map((item) => (
     <div className="item" key={item.id}>
       <div className="feat_property">
         <div className="thumb">
@@ -41,6 +54,7 @@ const FeaturedProperties = () => {
             className="img-whp w-100 h-100 cover"
             src={item.img}
             alt="fp1.jpg"
+            style={{ maxHeight: '220px' }}
           />
           <div className="thmb_cntnt">
             <ul className="tag mb0">
@@ -53,11 +67,11 @@ const FeaturedProperties = () => {
             {/* End .tag */}
 
             <ul className="icon mb0">
-              <li className="list-inline-item">
+              {/* <li className="list-inline-item">
                 <a href="#">
                   <span className="flaticon-transfer-1"></span>
                 </a>
-              </li>
+              </li> */}
               <li className="list-inline-item">
                 <a href="#">
                   <span className="flaticon-heart"></span>
@@ -68,7 +82,7 @@ const FeaturedProperties = () => {
 
             <Link href={`/listing-details-v1/${item.id}`} className="fp_price">
               ${item.price}
-              <small>/mo</small>
+              {/* <small>/mo</small> */}
             </Link>
           </div>
         </div>

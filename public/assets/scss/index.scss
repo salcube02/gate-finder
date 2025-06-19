@@ -1,6 +1,7 @@
 @use "sass:meta";
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
+@import "./font-awesome-next.css";
 @include meta.load-css("components/custom-slick");
 @import "./main.css";
 @import "./menu.css";
@@ -11,16 +12,17 @@
 @include meta.load-css("components/custom_theme.scss");
 @include meta.load-css("components/dashboard.scss");
 @import "./responsive.css";
+@import "./font-override.scss";
 
 .parent-menu-active > .pro-inner-item > .pro-item-content {
   color: var(--color-primary) !important;
 }
 
 .parent-menu-active {
-  color: #ff5a5f;
+  color: var(--color-primary);
 
   .inactive-mobile-menu {
-    color: #484848 !important;
+    color: #484848 !important;  
   }
 }
 // .inactive-mobile-menu{

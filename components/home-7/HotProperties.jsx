@@ -39,7 +39,7 @@ const HotProperties = () => {
                   </ul>
                   <a className="fp_price" href="#">
                     ${item.price}
-                    <small>/mo</small>
+                    {/* <small>/mo</small> */}
                   </a>
                 </div>
               </div>

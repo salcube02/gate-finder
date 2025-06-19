@@ -1,3 +1,6 @@
+'use client'
+
+import { useTranslations } from 'next-intl';
 import Header from "../../common/header/dashboard/Header";
 import SidebarMenu from "../../common/header/dashboard/SidebarMenu";
 import MobileMenu from "../../common/header/MobileMenu";
@@ -5,7 +8,9 @@ import ChangePassword from "./ChangePassword";
 import ProfileInfo from "./ProfileInfo";
 import SocialMedia from "./SocialMedia";
 
-const index = () => {
+const index = ({ locale }) => {
+  const t = useTranslations('dashboard');
+
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -27,7 +32,9 @@ const index = () => {
       {/* End sidebar_menu */}
 
       {/* <!-- Our Dashbord --> */}
-      <section className="our-dashbord dashbord bgc-f7 pb50">
+      <section className="our-dashbord dashbord bgc-f7 pb50"
+        style={{ paddingLeft: locale === 'ar' ? '0' : '295px', paddingRight: locale === 'ar' ? '295px' : '0' }}
+      >
         <div className="container-fluid ovh">
           <div className="row">
             <div className="col-lg-12 maxw100flex-992">
@@ -42,7 +49,7 @@ const index = () => {
                         data-bs-target="#DashboardOffcanvasMenu"
                         aria-controls="DashboardOffcanvasMenu"
                       >
-                        <i className="fa fa-bars pr10"></i> Dashboard Navigation
+                        <i className="fa fa-bars pe-10 ps-10"></i> {t('dashboardNavigation')}
                       </button>
                     </div>
                   </div>
@@ -51,8 +58,8 @@ const index = () => {
 
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
-                    <h2 className="breadcrumb_title">My Profile</h2>
-                    <p>We are glad to see you again!</p>
+                    <h2 className="breadcrumb_title">{t('myProfile')}</h2>
+                    <p>{t('weAreGladToSeeYouAgain')}</p>
                   </div>
                 </div>
                 {/* End .col */}
@@ -61,10 +68,10 @@ const index = () => {
                   <div className="my_dashboard_review">
                     <div className="row">
                       <div className="col-xl-2">
-                        <h4>Profile Information</h4>
+                        <h4>{t('profileInformation')}</h4>
                       </div>
                       <div className="col-xl-10">
-                        <ProfileInfo />
+                        <ProfileInfo locale={locale} />
                       </div>
                     </div>
                   </div>
@@ -73,7 +80,7 @@ const index = () => {
                   <div className="my_dashboard_review mt30">
                     <div className="row">
                       <div className="col-xl-2">
-                        <h4>Social Media</h4>
+                        <h4>{t('socialMedia')}</h4>
                       </div>
                       <div className="col-xl-10">
                         <SocialMedia />
@@ -85,7 +92,7 @@ const index = () => {
                   <div className="my_dashboard_review mt30">
                     <div className="row">
                       <div className="col-xl-2">
-                        <h4>Change password</h4>
+                        <h4>{t('changePassword')}</h4>
                       </div>
                       <div className="col-xl-10">
                         <ChangePassword />
@@ -99,7 +106,7 @@ const index = () => {
               <div className="row mt50">
                 <div className="col-lg-12">
                   <div className="copyright-widget text-center">
-                    <p>© 2020 Find House. Made with love.</p>
+                    <p>{t('poweredByCloudev')}</p>
                   </div>
                 </div>
               </div>

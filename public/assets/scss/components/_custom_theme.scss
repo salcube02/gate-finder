@@ -205,6 +205,15 @@ ul {
     right: 15px;
     z-index: 5;
 }
+.company-logo-rtl{
+    position: absolute ;
+    left:15px ;
+    top:15px ;
+    right:0 ;
+    z-index: 5;
+    display: flex;
+    justify-content: end;
+}
 
 .company-logo-bg {
     background-color: #ffffff;
@@ -423,7 +432,7 @@ header.header-nav.menu_style_home_one .ace-responsive-menu li.add_listing {
     transition: 0.3s ease-in-out;
 }
 header.header-nav.menu_style_home_one .ace-responsive-menu li.add_listing:hover {
-    background-color: #fff !important;
+    // background-color: #fff !important;
     border-color: var(--color-primary);
     a {
         color: var(--color-primary) !important;
@@ -799,7 +808,7 @@ header.header-nav.menu_style_home_one .ace-responsive-menu li.add_listing:hover 
 
     .bs_carousel .main_title {
         color: #ffffff;
-        font-family: "Nunito";
+        font-family: "Poppins";
         font-size: 55px;
         font-weight: bold;
         line-height: 1.2;
@@ -809,7 +818,7 @@ header.header-nav.menu_style_home_one .ace-responsive-menu li.add_listing:hover 
 
     .bs_carousel .parag {
         font-size: 18px;
-        font-family: "Nunito";
+        font-family: "Poppins";
         color: #ffffff;
         line-height: 1.2;
         margin-bottom: 0;
@@ -974,7 +983,7 @@ textarea.form-control {
         border: 1px solid rgb(235, 235, 235);
         border-radius: 8px;
         font-size: 14px;
-        font-family: "Nunito";
+        font-family: "Poppins";
         color: #484848;
         line-height: 1.2;
         height: 52px;
@@ -1370,4 +1379,28 @@ textarea.form-control {
 
 .client-review .media:not(:last-child) {
     border-bottom: 1px solid #ebebeb;
+}
+
+/* Global Poppins Font Override */
+body,
+html {
+    font-family: "Poppins", sans-serif !important;
+}
+
+/* Override all text elements to use Poppins */
+* {
+    font-family: "Poppins", sans-serif !important;
+}
+
+/* Preserve icon fonts from being overridden */
+[class*="fa-"],
+[class*="flaticon"],
+.fa,
+.fas,
+.far,
+.fal,
+.fab,
+*[style*="FontAwesome"],
+*[style*="FontAwesome5FreeSolid"] {
+    font-family: inherit !important;
 }

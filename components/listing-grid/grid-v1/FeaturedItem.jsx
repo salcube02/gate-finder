@@ -182,7 +182,7 @@ const FeaturedItem = () => {
                 className="fp_price"
               >
                 ${item.price}
-                <small>/mo</small>
+                {/* <small>/mo</small> */}
               </Link>
             </div>
           </div>

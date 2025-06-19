@@ -1,9 +1,11 @@
 'use client'
 
 import { useState } from "react";
+import { useTranslations } from 'next-intl';
 
-const ProfileInfo = () => {
+const ProfileInfo = ({ locale }) => {
     const [profile, setProfile] = useState(null);
+    const t = useTranslations('dashboard');
 
     // upload profile
     const uploadProfile = (e) => {
@@ -12,7 +14,7 @@ const ProfileInfo = () => {
 
     return (
         <div className="row">
-            <div className="col-lg-12">
+            <div className="col-lg-12" style={{ display:"flex",flexDirection:"column", alignItems:locale === 'ar' ? "flex-end" : "flex-start" }}>
                 <div className="wrap-custom-file">
                     <input
                         type="file"
@@ -33,17 +35,17 @@ const ProfileInfo = () => {
                         htmlFor="image1"
                     >
                         <span>
-                            <i className="flaticon-download"></i> Upload Photo{" "}
+                            <i className="flaticon-download"></i> {t('uploadPhoto')}{" "}
                         </span>
                     </label>
                 </div>
-                <p>*minimum 260px x 260px</p>
+                <p>{t('minimumSize')}</p>
             </div>
             {/* End .col */}
 
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleInput1">Username</label>
+                    <label htmlFor="formGroupExampleInput1">{t('username')}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -56,7 +58,7 @@ const ProfileInfo = () => {
 
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleEmail">Email</label>
+                    <label htmlFor="formGroupExampleEmail">{t('email')}</label>
                     <input
                         type="email"
                         className="form-control"
@@ -69,7 +71,7 @@ const ProfileInfo = () => {
 
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleInput3">First Name</label>
+                    <label htmlFor="formGroupExampleInput3">{t('firstName')}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -81,7 +83,7 @@ const ProfileInfo = () => {
 
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleInput4">Last Name</label>
+                    <label htmlFor="formGroupExampleInput4">{t('lastName')}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -93,7 +95,7 @@ const ProfileInfo = () => {
 
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleInput5">Position</label>
+                    <label htmlFor="formGroupExampleInput5">{t('position')}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -105,7 +107,7 @@ const ProfileInfo = () => {
 
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleInput6">License</label>
+                    <label htmlFor="formGroupExampleInput6">{t('license')}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -117,7 +119,7 @@ const ProfileInfo = () => {
 
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleInput7">Tax Number</label>
+                    <label htmlFor="formGroupExampleInput7">{t('taxNumber')}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -129,7 +131,7 @@ const ProfileInfo = () => {
 
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleInput8">Phone</label>
+                    <label htmlFor="formGroupExampleInput8">{t('phone')}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -141,7 +143,7 @@ const ProfileInfo = () => {
 
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleInput9">Fax Number</label>
+                    <label htmlFor="formGroupExampleInput9">{t('faxNumber')}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -153,7 +155,7 @@ const ProfileInfo = () => {
 
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleInput10">Mobile</label>
+                    <label htmlFor="formGroupExampleInput10">{t('mobile')}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -165,7 +167,7 @@ const ProfileInfo = () => {
 
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleInput11">Language</label>
+                    <label htmlFor="formGroupExampleInput11">{t('language')}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -178,7 +180,7 @@ const ProfileInfo = () => {
             <div className="col-lg-6 col-xl-6">
                 <div className="my_profile_setting_input form-group">
                     <label htmlFor="formGroupExampleInput12">
-                        Company Name
+                        {t('companyName')}
                     </label>
                     <input
                         type="text"
@@ -191,7 +193,7 @@ const ProfileInfo = () => {
 
             <div className="col-xl-12">
                 <div className="my_profile_setting_input form-group">
-                    <label htmlFor="formGroupExampleInput13">Address</label>
+                    <label htmlFor="formGroupExampleInput13">{t('address')}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -204,7 +206,7 @@ const ProfileInfo = () => {
             <div className="col-xl-12">
                 <div className="my_profile_setting_textarea">
                     <label htmlFor="exampleFormControlTextarea1">
-                        About me
+                        {t('aboutMe')}
                     </label>
                     <textarea
                         className="form-control"
@@ -217,8 +219,8 @@ const ProfileInfo = () => {
 
             <div className="col-xl-12 text-right">
                 <div className="my_profile_setting_input">
-                    <button className="btn btn1">View Public Profile</button>
-                    <button className="btn btn2">Update Profile</button>
+                    <button className="btn btn1">{t('viewPublicProfile')}</button>
+                    <button className="btn btn2">{t('updateProfile')}</button>
                 </div>
             </div>
             {/* End .col */}

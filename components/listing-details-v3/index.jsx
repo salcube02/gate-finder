@@ -57,7 +57,8 @@ const index = () => {
                 </div>
                 <div className="price text-end tal-400">
                   <h2>
-                    $13,000<small>/mo</small>
+                    $13,0000
+                    {/* <small>/mo</small> */}
                   </h2>
                 </div>
               </div>

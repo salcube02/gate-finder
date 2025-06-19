@@ -1,41 +1,55 @@
+"use client"
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 import Ratings from "./Ratings";
 
 const Comments = () => {
+  let t;
+  try {
+    t = useTranslations('comments');
+  } catch (error) {
+    console.warn('Translation hook failed, using fallbacks:', error);
+    t = (key) => {
+      const fallbacks = {
+        'dianaCooper': 'Diana Cooper',
+        'aliTufan': 'Ali Tufan',
+        'comment1': 'Beautiful home, very picturesque and close to everything in jtree! A little warm for a hot weekend, but would love to come back during the cooler seasons!',
+        'comment2': 'Beautiful home, very picturesque and close to everything in jtree! A little warm for a hot weekend, but would love to come back during the cooler seasons!'
+      };
+      return fallbacks[key] || key;
+    };
+  }
+
   const commmetContent = [
     {
       id: 1,
       img: "1",
-      name: " Diana Cooper",
+      name: t('dianaCooper'),
       ratings: (
         <>
           <Ratings />
         </>
       ),
       data: "",
-      text: `Beautiful home, very picturesque and close to everything in jtree! A
-      little warm for a hot weekend, but would love to come back during
-      the cooler seasons!`,
+      text: t('comment1'),
     },
     {
       id: 2,
       img: "2",
-      name: "Ali Tufan",
+      name: t('aliTufan'),
       ratings: (
         <>
           <Ratings />
         </>
       ),
       data: "",
-      text: `Beautiful home, very picturesque and close to everything in jtree! A
-      little warm for a hot weekend, but would love to come back during
-      the cooler seasons!`,
+      text: t('comment2'),
     },
   ];
   return (
     <>
       {commmetContent.map((item) => (
-        <div className="mbp_first media" key={item.id}>
+        <div className="mbp_first media w-100" key={item.id}>
           <Image
             width={80}
             height={80}

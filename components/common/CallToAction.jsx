@@ -1,12 +1,17 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import Link from "next/link";
 
 const CallToAction = () => {
+  const t = useTranslations('footer');
+
   return (
     <div className="row">
       <div className="col-lg-8">
         <div className="start_partner tac-smd">
-          <h2>Become a Real Estate Agent</h2>
-          <p>We only work with the best companies around the globe</p>
+          <h2>{t('becomeRealEstateAgent')}</h2>
+          <p>{t('becomeRealEstateAgentDesc')}</p>
         </div>
       </div>
       {/* End .col */}
@@ -16,7 +21,7 @@ const CallToAction = () => {
 
           {/* TODO: Add the link to the register page href="/register" */}
           <Link href="#" className="btn btn-thm2">
-            Register Now
+            {t('registerNow')}
           </Link>
         </div>
       </div>

@@ -15,6 +15,9 @@ import Link from "next/link";
 
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import LanguageSwitcher from "../LanguageSwitcher";
+import { useTranslations } from 'next-intl';
+import { useState, useEffect } from 'react';
 
 const home = [
   {
@@ -307,19 +310,32 @@ const pages = [
 const MobileMenuContent = () => {
   const pathname = usePathname()
   const router = useRouter()
+  const t = useTranslations();
+  const [currentLocale, setCurrentLocale] = useState('en');
+
+  useEffect(() => {
+    // Get the current language from localStorage or default to 'en'
+    const savedLocale = localStorage.getItem('preferredLanguage') || 'en';
+    setCurrentLocale(savedLocale);
+  }, []);
+  
+  const locale = currentLocale;
+
+  // Create localized paths
+  const localePath = (path) => `/${locale}${path}`;
 
   return (
 <>
         <div className="sidebar-header">
-          <Link href="/" className="sidebar-header-inner">
+          <Link href={localePath("/")} className="sidebar-header-inner">
             <Image
-              width={40}
-              height={45}
+              width={170}
+              height={55}
               className="nav_logo_img img-fluid mt20"
-              src="/assets/images/header-logo2.png"
+              src="/assets/images/logo.png"
               alt="header-logo.png"
             />
-            <span className="brand-text">FindHouse</span>
+            {/* <span className="brand-text">FindHouse</span> */}
           </Link>
           {/* End .logo */}
 
@@ -337,7 +353,7 @@ const MobileMenuContent = () => {
     {/* <Sidebar> */}
     <div style={{maxHeight:'calc(100vh - 100px)', overflowY:'auto'}}>
         <Menu>
-          <SubMenu
+          {/* <SubMenu
             label="Home"
            
             className={
@@ -345,8 +361,19 @@ const MobileMenuContent = () => {
                 ? "parent-menu-active"
                 : 'inactive-mobile-menu'
             }
-          >
-            {home.map((val, i) => (
+          > */}
+            <MenuItem key={'home'} active={true}>
+                <div
+                 
+                  onClick={()=>router.push(localePath('/'))}
+                  // className={
+                  //   val.routerPath?.split('/')[1] === pathname.split('/')[1] ? "ui-active" : 'inactive-mobile-menu'
+                  // }
+                >
+                  {t('navigation.home')}
+                </div>
+              </MenuItem>
+            {/* {home.map((val, i) => (
               <MenuItem key={i} active={true}>
                 <div
                  
@@ -358,12 +385,12 @@ const MobileMenuContent = () => {
                   {val.name}
                 </div>
               </MenuItem>
-            ))}
-          </SubMenu>
+            ))} */}
+          {/* </SubMenu> */}
           {/* End Home Home */}
 
-          <SubMenu
-            label="Listing"
+          {/* <SubMenu
+            label="Projects"
             className={
               listing.some((parent) => {
                 return parent.items.some(
@@ -373,8 +400,21 @@ const MobileMenuContent = () => {
                 ? "parent-menu-active"
                 : 'inactive-mobile-menu'
             }
-          >
-            {listing.map((item) => (
+          > */}
+                <MenuItem key={'projects '}>
+                    <div
+                     onClick={()=>router.push(localePath("/listing-map-v2"))}
+                      // className={
+                      //   pathname?.split('/')[1] === val.routerPath?.split('/')[1]
+                      //     ? "ui-active"
+                      //     : 'inactive-mobile-menu'
+                      // }
+                    >
+                      {/* {val.name} */}
+                      {t('navigation.projects')}
+                    </div>
+                  </MenuItem>
+            {/* {listing.map((item) => (
               <SubMenu
               label={item.title}
                 className={
@@ -399,11 +439,11 @@ const MobileMenuContent = () => {
                   </MenuItem>
                 ))}
               </SubMenu>
-            ))}
-          </SubMenu>
+            ))} */}
+          {/* </SubMenu> */}
           {/* End Pages Listing */}
 
-          <SubMenu
+          {/* <SubMenu
             label="Property"
             className={
               property.some((parent) => {
@@ -448,9 +488,9 @@ const MobileMenuContent = () => {
                 ))}
               </SubMenu>
             ))}
-          </SubMenu>
+          </SubMenu> */}
           {/* End Pages Property */}
-
+{/* 
           <SubMenu
             label="Blog"
             className={
@@ -478,10 +518,10 @@ const MobileMenuContent = () => {
                 </div>
               </MenuItem>
             ))}
-          </SubMenu>
+          </SubMenu> */}
           {/* End pages Blog */}
 
-          <SubMenu
+          {/* <SubMenu
             label="Pages"
             className={
               pages.some((page) => page.routerPath?.split('/')[1] === pathname.split('/')[1])
@@ -501,10 +541,10 @@ const MobileMenuContent = () => {
                 </div>
               </MenuItem>
             ))}
-          </SubMenu>
+          </SubMenu> */}
           {/* End pages Pages */}
 
-          <MenuItem>
+          {/* <MenuItem>
             <div
             onClick={()=>router.push("/contact")}
              
@@ -514,9 +554,9 @@ const MobileMenuContent = () => {
             >
               Contact
             </div>
-          </MenuItem>
+          </MenuItem> */}
 
-          <MenuItem>
+          {/* <MenuItem>
             <div
             onClick={()=>router.push("/login")}
     
@@ -536,18 +576,22 @@ const MobileMenuContent = () => {
             >
               <span className="flaticon-edit"></span> Register
             </div>
-          </MenuItem>
+          </MenuItem> */}
         </Menu>
         </div>
       {/* </Sidebar> */}
 
       
+        <div style={{padding: '20px', display: 'flex', justifyContent: 'center'}}>
+          <LanguageSwitcher />
+        </div>
+      
         <Link
-          href="/create-listing"
+          href={localePath("/create-listing")}
           className="btn btn-block btn-lg btn-thm circle"
           style={{width:'90%',margin:'0px auto'}}
         >
-          <span className="flaticon-plus"></span> Create Listing
+          <span className="flaticon-plus"></span> {t('navigation.addProject')}
         </Link></>
      
    

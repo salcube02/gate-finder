@@ -1,9 +1,15 @@
+'use client'
+
+import { useTranslations } from 'next-intl';
+
 const CreateList = () => {
+  const t = useTranslations('dashboard');
+
   return (
     <>
       <div className="col-lg-12">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="propertyTitle">Project Title</label>
+          <label htmlFor="propertyTitle">{t('projectTitle')}</label>
           <input type="text" className="form-control" id="propertyTitle" />
         </div>
       </div>
@@ -11,7 +17,7 @@ const CreateList = () => {
 
       <div className="col-lg-12">
         <div className="my_profile_setting_textarea">
-          <label htmlFor="propertyDescription">Description</label>
+          <label htmlFor="propertyDescription">{t('description')}</label>
           <textarea
             className="form-control"
             id="propertyDescription"
@@ -23,7 +29,7 @@ const CreateList = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input ui_kit_select_search form-group">
-          <label>Type</label>
+          <label>{t('type')}</label>
           <select
             className="selectpicker form-select"
             data-live-search="true"
@@ -41,7 +47,7 @@ const CreateList = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input ui_kit_select_search form-group">
-          <label>Status</label>
+          <label>{t('status')}</label>
           <select
             className="selectpicker form-select"
             data-live-search="true"
@@ -57,9 +63,9 @@ const CreateList = () => {
       </div>
       {/* End .col */}
 
-      <div className="col-lg-4 col-xl-4">
+      <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExamplePrice">Price</label>
+          <label htmlFor="formGroupExamplePrice">{t('price')}</label>
           <input
             type="number"
             className="form-control"
@@ -69,9 +75,9 @@ const CreateList = () => {
       </div>
       {/* End .col */}
 
-      <div className="col-lg-4 col-xl-4">
+      <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="formGroupExampleArea">Area</label>
+          <label htmlFor="formGroupExampleArea">{t('area')}</label>
           <input
             type="text"
             className="form-control"
@@ -81,9 +87,9 @@ const CreateList = () => {
       </div>
       {/* End .col */}
 
-      <div className="col-lg-4 col-xl-4">
+      {/* <div className="col-lg-4 col-xl-4">
         <div className="my_profile_setting_input ui_kit_select_search form-group">
-          <label>Rooms</label>
+          <label>{t('rooms')}</label>
           <select
             className="selectpicker form-select"
             data-live-search="true"
@@ -97,13 +103,13 @@ const CreateList = () => {
             <option data-tokens="Status6">Other</option>
           </select>
         </div>
-      </div>
+      </div> */}
       {/* End .col */}
 
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start">Back</button>
-          <button className="btn btn2 float-end">Next</button>
+          <button className="btn btn1 float-start">{t('back')}</button>
+          <button className="btn btn2 float-end">{t('next')}</button>
         </div>
       </div>
     </>

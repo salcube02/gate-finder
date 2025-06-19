@@ -1,4 +1,5 @@
 "use client"
+import { useTranslations } from 'next-intl';
 import Comments from "../blog-details/Comments";
 import Ratings from "../blog-details/Ratings";
 import ReviewBox from "../blog-details/ReviewBox";
@@ -14,53 +15,93 @@ import PropertyVideo from "../common/listing-details/PropertyVideo";
 import WalkScore from "../common/listing-details/WalkScore";
 import WhatsNearby from "../common/listing-details/WhatsNearby";
 
-const DetailsContent = () => {
+const DetailsContent = ({ id }) => {
+  let t;
+  try {
+    t = useTranslations('detailsContent');
+  } catch (error) {
+    console.warn('Translation hook failed, using fallbacks:', error);
+    // Fallback function when translations fail
+    t = (key) => {
+      const fallbacks = {
+        'description': 'Description',
+        'projectDetails': 'Project Details',
+        'additionalDetails': 'Additional details',
+        'projectProgressTimeline': 'Project Progress & Timeline',
+        'overallProjectProgress': 'Overall Project Progress',
+        'estimatedCompletion': 'Estimated Completion',
+        'daysRemaining': 'Days Remaining',
+        'nextMilestone': 'Next Milestone',
+        'projectTimeline': 'Project Timeline',
+        'phases.planningDesign': 'Planning & Design',
+        'phases.foundation': 'Foundation',
+        'phases.construction': 'Construction',
+        'phases.interiorWork': 'Interior Work',
+        'phases.finalTouches': 'Final Touches',
+        'phases.planningDesignDesc': 'Architectural plans and permits approved',
+        'phases.foundationDesc': 'Foundation and structural work completed',
+        'phases.constructionDesc': 'Main construction and framing in progress',
+        'phases.interiorWorkDesc': 'Electrical, plumbing, and interior finishing',
+        'phases.finalTouchesDesc': 'Landscaping and final inspections',
+        'dates.jan2024': 'Jan 2024',
+        'dates.mar2024': 'Mar 2024',
+        'dates.may2024': 'May 2024',
+        'dates.aug2024': 'Aug 2024',
+        'dates.nov2024': 'Nov 2024',
+        'status.completed': 'COMPLETED',
+        'status.inProgress': 'DONE',
+        'status.pending': 'PENDING'
+      };
+      return fallbacks[key] || key;
+    };
+  }
+
   // Project timeline data with cumulative percentage ranges
   const projectTimeline = [
     {
-      phase: "Planning & Design",
+      phase: t('phases.planningDesign'),
       startPercentage: 0,
       endPercentage: 20,
       currentProgress: 100, // This phase is 100% complete
       status: "completed",
-      date: "Jan 2024",
-      description: "Architectural plans and permits approved"
+      date: t('dates.jan2024'),
+      description: t('phases.planningDesignDesc')
     },
     {
-      phase: "Foundation",
+      phase: t('phases.foundation'),
       startPercentage: 20,
       endPercentage: 35,
       currentProgress: 100, // This phase is 100% complete
       status: "completed", 
-      date: "Mar 2024",
-      description: "Foundation and structural work completed"
+      date: t('dates.mar2024'),
+      description: t('phases.foundationDesc')
     },
     {
-      phase: "Construction",
+      phase: t('phases.construction'),
       startPercentage: 35,
       endPercentage: 70,
       currentProgress: 60, // This phase is 60% complete
       status: "in-progress",
-      date: "May 2024",
-      description: "Main construction and framing in progress"
+      date: t('dates.may2024'),
+      description: t('phases.constructionDesc')
     },
     {
-      phase: "Interior Work",
+      phase: t('phases.interiorWork'),
       startPercentage: 70,
       endPercentage: 90,
       currentProgress: 25, // This phase is 25% complete
       status: "in-progress",
-      date: "Aug 2024",
-      description: "Electrical, plumbing, and interior finishing"
+      date: t('dates.aug2024'),
+      description: t('phases.interiorWorkDesc')
     },
     {
-      phase: "Final Touches",
+      phase: t('phases.finalTouches'),
       startPercentage: 90,
       endPercentage: 100,
       currentProgress: 0, // This phase hasn't started
       status: "pending",
-      date: "Nov 2024",
-      description: "Landscaping and final inspections"
+      date: t('dates.nov2024'),
+      description: t('phases.finalTouchesDesc')
     }
   ];
 
@@ -87,7 +128,7 @@ const DetailsContent = () => {
         </div>
         {/* End .lsd_list */}
 
-        <h4 className="mb30">Description</h4>
+        <h4 className="mb30">{t('description')}</h4>
         <PropertyDescriptions />
       </div>
       {/* End .listing_single_description */}
@@ -95,7 +136,7 @@ const DetailsContent = () => {
       <div className="additional_details">
         <div className="row">
           <div className="col-lg-12">
-            <h4 className="mb15">Property Details</h4>
+            <h4 className="mb15">{t('projectDetails')}</h4>
           </div>
           <PropertyDetails />
         </div>
@@ -105,7 +146,7 @@ const DetailsContent = () => {
       <div className="additional_details">
         <div className="row">
           <div className="col-lg-12">
-            <h4 className="mb15">Additional details</h4>
+            <h4 className="mb15">{t('additionalDetails')}</h4>
           </div>
           <AdditionalDetails />
         </div>
@@ -116,12 +157,12 @@ const DetailsContent = () => {
       <div className="project_progress_section mt30">
         <div className="row">
           <div className="col-lg-12">
-            <h4 className="mb30">Project Progress & Timeline</h4>
+            <h4 className="mb30">{t('projectProgressTimeline')}</h4>
             
             {/* Overall Progress Bar */}
             <div className="overall_progress_container mb40">
               <div className="d-flex justify-content-between align-items-center mb15">
-                <h5 className="mb0">Overall Project Progress</h5>
+                <h5 className="mb0">{t('overallProjectProgress')}</h5>
                 <span className="progress_percentage" style={{ 
                   fontSize: '18px', 
                   fontWeight: '700', 
@@ -169,8 +210,8 @@ const DetailsContent = () => {
                       borderRadius: '8px',
                       border: '1px solid #e9ecef'
                     }}>
-                      <h6 className="mb5">Estimated Completion</h6>
-                      <p className="mb0" style={{ color: '#666', fontSize: '14px' }}>December 2024</p>
+                      <h6 className="mb5">{t('estimatedCompletion')}</h6>
+                      <p className="mb0" style={{ color: '#666', fontSize: '14px' }}>{t('december2024')}</p>
                     </div>
                   </div>
                   <div className="col-md-4">
@@ -179,8 +220,8 @@ const DetailsContent = () => {
                       borderRadius: '8px',
                       border: '1px solid #e9ecef'
                     }}>
-                      <h6 className="mb5">Days Remaining</h6>
-                      <p className="mb0" style={{ color: '#666', fontSize: '14px' }}>~90 Days</p>
+                      <h6 className="mb5">{t('daysRemaining')}</h6>
+                      <p className="mb0" style={{ color: '#666', fontSize: '14px' }}>{t('daysCount')}</p>
                     </div>
                   </div>
                   <div className="col-md-4">
@@ -189,8 +230,8 @@ const DetailsContent = () => {
                       borderRadius: '8px',
                       border: '1px solid #e9ecef'
                     }}>
-                      <h6 className="mb5">Next Milestone</h6>
-                      <p className="mb0" style={{ color: '#666', fontSize: '14px' }}>Interior Work</p>
+                      <h6 className="mb5">{t('nextMilestone')}</h6>
+                      <p className="mb0" style={{ color: '#666', fontSize: '14px' }}>{t('interiorWork')}</p>
                     </div>
                   </div>
                 </div>
@@ -199,17 +240,17 @@ const DetailsContent = () => {
 
             {/* Timeline */}
             <div className="project_timeline">
-              <h5 className="mb30">Project Timeline</h5>
+              <h5 className="mb30">{t('projectTimeline')}</h5>
               
               <div className="timeline_container">
                 {projectTimeline.map((phase, index) => (
-                  <div key={index} className="timeline_item mb30" style={{ 
+                  <div key={index} className={`timeline_item mb30 ${index === projectTimeline.length - 1 ? 'timeline_item_last' : ''}`} style={{ 
                     position: 'relative',
                     paddingLeft: '60px',
                     borderLeft: index !== projectTimeline.length - 1 ? '2px solid #e9ecef' : 'none'
                   }}>
                     {/* Timeline dot */}
-                    <div style={{
+                    <div className="timeline_dot" style={{
                       position: 'absolute',
                       left: '-8px',
                       top: '0',
@@ -267,7 +308,7 @@ const DetailsContent = () => {
                             fontWeight: '600',
                             marginTop: '2px'
                           }}>
-                            {phase.status === 'completed' ? 'COMPLETED' : phase.status === 'in-progress' ? `${phase.currentProgress}% DONE` : 'PENDING'}
+                            {phase.status === 'completed' ? t('status.completed') : phase.status === 'in-progress' ? `${phase.currentProgress}% ${t('status.inProgress')}` : t('status.pending')}
                           </div>
                         </div>
                       </div>
@@ -315,9 +356,9 @@ const DetailsContent = () => {
 
                       {/* Phase contribution text */}
                       <div className="mt10" style={{ fontSize: '11px', color: '#999' }}>
-                        This phase represents {phase.endPercentage - phase.startPercentage}% of the total project
+                        {t('thisPhasePrepresents')} {phase.endPercentage - phase.startPercentage}% {t('ofTotalProject')}
                         {phase.status !== 'pending' && (
-                          <span> • Currently {phase.currentProgress}% complete</span>
+                          <span> • {t('currentlyComplete')} {phase.currentProgress}% {t('complete')}</span>
                         )}
                       </div>
                     </div>
@@ -331,7 +372,7 @@ const DetailsContent = () => {
       {/* End Project Progress & Timeline Section */}
 
       <div className="property_attachment_area">
-        <h4 className="mb30">Property Attachments</h4>
+        <h4 className="mb30">{t('projectAttachments')}</h4>
         <div className="iba_container style2">
           <Attachments />
         </div>
@@ -341,7 +382,7 @@ const DetailsContent = () => {
       <div className="application_statics mt30">
         <div className="row">
           <div className="col-lg-12">
-            <h4 className="mb10">Features</h4>
+            <h4 className="mb10">{t('features')}</h4>
           </div>
           {/* End .col */}
 
@@ -352,7 +393,7 @@ const DetailsContent = () => {
 
       <div className="application_statics mt30">
         <h4 className="mb30">
-          Location{" "}
+          {t('location')}{" "}
           <small className="float-end">
             1421 San Pedro St, Los Angeles, CA 90015
           </small>
@@ -364,9 +405,9 @@ const DetailsContent = () => {
       {/* End .location_area */}
 
       <div className="application_statics mt30">
-        <h4 className="mb30">Floor plans</h4>
+        <h4 className="mb30">{id == "1" || id == "2" || id == "3" ? t('floorPlans') : id == "4" || id == "5" || id == "6" ? t('houseDetails') : t('floorPlans')}</h4>
         <div className="faq_according style2">
-          <FloorPlans />
+          <FloorPlans id={id} />
         </div>
       </div>
       {/* End .floor_plane */}
@@ -382,7 +423,7 @@ const DetailsContent = () => {
       {/* End walkscore_area */}
 
       <div className="whats_nearby mt30">
-        <h4 className="mb10">What&apos;s Nearby</h4>
+        <h4 className="mb10">{t('whatsNearby')}</h4>
         <WhatsNearby />
       </div>
       {/* End what's nearby area */}
@@ -390,15 +431,19 @@ const DetailsContent = () => {
       <div className="product_single_content">
         <div className="mbp_pagination_comments mt30">
           <div className="total_review">
-            <h4>896 Reviews</h4>
+            <h4>896 {t('reviews')}</h4>
             <ul className="review_star_list mb0 pl10">
               <Ratings />
             </ul>
             <a className="tr_outoff pl10" href="#">
-              ( 4.5 out of 5 )
+              ( 4.5 {t('outOf')} 5 )
             </a>
-            <a className="write_review float-end fn-xsd" href="#">
-              Write a Review
+            <a className="write_review float-end fn-xsd" style={{width: "100%",
+    display: "flex",
+    "justifyContent": "end",
+    right: "-30px"}} 
+    href="#">
+              {t('writeReview')}
             </a>
           </div>
           {/* End .total_review */}
@@ -406,7 +451,7 @@ const DetailsContent = () => {
           <div className="custom_hr"></div>
 
           <div className="mbp_comment_form style2">
-            <h4>Write a Review</h4>
+            <h4>{t('writeReview')}</h4>
             <ul className="review_star">
               <li className="list-inline-item">
                 <span className="sspd_review">
@@ -416,7 +461,7 @@ const DetailsContent = () => {
                 </span>
               </li>
               <li className="list-inline-item pr15">
-                <p>Your Rating & Review</p>
+                <p>{t('yourRatingReview')}</p>
               </li>
             </ul>
             <ReviewBox />
@@ -429,6 +474,40 @@ const DetailsContent = () => {
         @keyframes shimmer {
           0% { transform: translateX(-100%); }
           100% { transform: translateX(100%); }
+        }
+        
+        /* RTL Timeline adjustments */
+        [dir="rtl"] .timeline_item {
+          padding-right: 60px !important;
+          padding-left: 0 !important;
+          border-right: 2px solid #e9ecef !important;
+          border-left: none !important;
+        }
+        
+        [dir="rtl"] .timeline_item_last {
+          border-right: none !important;
+        }
+        
+        [dir="rtl"] .timeline_dot {
+          right: -8px !important;
+          left: auto !important;
+        }
+        
+        [dir="rtl"] .float-end {
+          float: left !important;
+        }
+        
+        [dir="ltr"] .float-end {
+          float: right !important;
+        }
+        
+        /* Text alignment for RTL */
+        [dir="rtl"] .text-end {
+          text-align: left !important;
+        }
+        
+        [dir="rtl"] .d-flex {
+          direction: rtl;
         }
       `}</style>
     </>

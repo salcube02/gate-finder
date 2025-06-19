@@ -1,3 +1,7 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
 import Pagination from "../../common/blog/Pagination";
 import Header from "../../common/header/DefaultHeader";
 import MobileMenu from "../../common/header/MobileMenu";
@@ -7,10 +11,17 @@ import ShowFilter from "../../common/listing/ShowFilter";
 import SidebarListing2 from "../../common/listing/SidebarListing2";
 import PopupSignInUp from "../../common/PopupSignInUp";
 import FeaturedItem from "./FeaturedItem";
+import FeaturedItemArabic from "./FeaturedItemArabic";
 
 const index = () => {
+  const t = useTranslations('listing');
+  const params = useParams();
+  const locale = params.locale;
+  const isRTL = locale === 'ar';
+  const direction = isRTL ? 'rtl' : 'ltr';
+
   return (
-    <>
+    <div dir={direction} className={isRTL ? 'arabic-font' : ''}>
       {/* <!-- Main Header Nav --> */}
       <Header />
 
@@ -28,7 +39,7 @@ const index = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-12">
-              <div className="sidebar_switch mobile_style dn db-991 mt30 mb0">
+              <div className={`sidebar_switch mobile_style dn db-991 mt30 mb0 ${isRTL ? 'text-right' : 'text-left'}`}>
                 {" "}
                 <ShowFilter />
               </div>
@@ -41,12 +52,12 @@ const index = () => {
                 id="sidebarListing"
               >
                 <div className="offcanvas-header">
-                  <h5 className="offcanvas-title">Advanced Search</h5>
+                  <h5 className="offcanvas-title">{t('advancedSearch')}</h5>
                   <button
                     type="button"
                     className="btn-close text-reset"
                     data-bs-dismiss="offcanvas"
-                    aria-label="Close"
+                    aria-label={t('close')}
                   ></button>
                 </div>
                 {/* End .offcanvas-heade */}
@@ -59,7 +70,7 @@ const index = () => {
             </div>
             {/* End .col */}
 
-            <div className="col-xxl-4 col-xl-6 order-lg-1 order-xl-2  p0 position-relative">
+            <div className={`col-xxl-4 col-xl-6 order-lg-1 order-xl-2 p0 position-relative ${isRTL ? 'order-xl-1' : 'order-xl-2'}`}>
               {/* filter switch */}
 
               <div className="home_two_map style2 half_map_area">
@@ -84,8 +95,8 @@ const index = () => {
             </div>
             {/* End .col */}
 
-            <div className="col-xxl-8 col-xl-6 order-lg-2 order-xl-1">
-            <div className="sidebar_switch style2 text-right dn-991 visible-filter filter-let-top">
+            <div className={`col-xxl-8 col-xl-6 order-lg-2 ${isRTL ? 'order-xl-2' : 'order-xl-1'}`}>
+            <div className={`sidebar_switch style2 dn-991 visible-filter filter-let-top ${isRTL ? 'text-left' : 'text-right'}`}>
                 <ShowFilter />
               </div>
               <div className="half_map_area_content mt30">
@@ -104,7 +115,7 @@ const index = () => {
                   {/* End .row */}
 
                   <div className="row">
-                    <FeaturedItem />
+                    {isRTL ? <FeaturedItemArabic /> : <FeaturedItem />}
                   </div>
                   {/* End .row */}
 
@@ -125,7 +136,7 @@ const index = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

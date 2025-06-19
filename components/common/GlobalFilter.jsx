@@ -1,5 +1,7 @@
 'use client'
 
+import { useTranslations } from 'next-intl';
+import { useDispatch } from "react-redux";
 import {
   addKeyword,
   addLocation,
@@ -8,9 +10,20 @@ import PricingRangeSlider from "./PricingRangeSlider";
 import CheckBoxFilter from "./CheckBoxFilter";
 import GlobalSelectBox from "./GlobalSelectBox";
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from 'react';
 
 const GlobalFilter = ({ className = "" }) => {
+  const t = useTranslations('common');
+  const dispatch = useDispatch();
   const router = useRouter()
+  const [currentLocale, setCurrentLocale] = useState('en');
+
+  useEffect(() => {
+    // Get the current language from localStorage or default to 'en'
+    const savedLocale = localStorage.getItem('preferredLanguage') || 'en';
+    setCurrentLocale(savedLocale);
+  }, []);
+  
   // submit handler
   const submitHandler = () => {
     router.push("/listing-grid-v1");
@@ -24,7 +37,7 @@ const GlobalFilter = ({ className = "" }) => {
             <input
               type="text"
               className="form-control"
-              placeholder="Enter keyword..."
+              placeholder={t('enterKeyword')}
               onChange={(e) => dispatch(addKeyword(e.target.value))}
             />
           </div>
@@ -35,13 +48,13 @@ const GlobalFilter = ({ className = "" }) => {
           <div className="search_option_two">
             <div className="candidate_revew_select">
               <select className="selectpicker w100 form-select show-tick">
-                <option value="">Property Type</option>
-                <option>Apartment</option>
-                <option>Bungalow</option>
-                <option>Condo</option>
-                <option>House</option>
-                <option>Land</option>
-                <option>Single Family</option>
+                <option value="">{t('propertyType')}</option>
+                <option>{t('apartment')}</option>
+                <option>{t('bungalow')}</option>
+                <option>{t('condo')}</option>
+                <option>{t('house')}</option>
+                <option>{t('land')}</option>
+                <option>{t('singleFamily')}</option>
               </select>
             </div>
           </div>
@@ -53,8 +66,9 @@ const GlobalFilter = ({ className = "" }) => {
             <input
               type="text"
               className="form-control"
-              placeholder="Location"
+              placeholder={t('location')}
               onChange={(e) => dispatch(addLocation(e.target.value))}
+              style={{paddingRight: "2.5rem"}}
             />
             <label>
               <span className="flaticon-maps-and-flags"></span>
@@ -64,15 +78,16 @@ const GlobalFilter = ({ className = "" }) => {
         {/* End li */}
 
         <li className="list-inline-item">
-          <div className="small_dropdown2">
+          <div className="small_dropdown2" >
             <div
               id="prncgs"
               className="btn dd_btn"
               data-bs-toggle="dropdown"
               data-bs-auto-close="outside"
               aria-expanded="false"
+              style={{textAlign: currentLocale === 'ar' ? 'right' : 'left'}}
             >
-              <span>Price</span>
+              <span> {t('price')}</span>
               <label htmlFor="InputEmail2">
                 <span className="fa fa-angle-down"></span>
               </label>
@@ -95,13 +110,13 @@ const GlobalFilter = ({ className = "" }) => {
                 data-bs-auto-close="outside"
                 aria-expanded="false"
               >
-                Advanced <i className="flaticon-more pl10 flr-520"></i>
+                {t('advanced')} <i className="flaticon-more pl10 flr-520"></i>
               </span>
 
               <div className="dropdown-content dropdown-menu ">
                 <div className="row p15">
                   <div className="col-lg-12">
-                    <h4 className="text-thm3 mb-4">Amenities</h4>
+                    <h4 className="text-thm3 mb-4">{t('amenities')}</h4>
                   </div>
 
                   <CheckBoxFilter />
@@ -130,7 +145,7 @@ const GlobalFilter = ({ className = "" }) => {
               type="submit"
               className="btn btn-thm"
             >
-              Search
+              {t('search')}
             </button>
           </div>
         </li>

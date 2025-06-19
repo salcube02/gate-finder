@@ -1,7 +1,12 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import HeroFilter from "./HeroFilter";
 
 const Hero = () => {
+  const t = useTranslations('common');
+
   return (
     <section className="home-one home1-overlay home1_bgi1">
       <div className="container">
@@ -16,8 +21,8 @@ const Hero = () => {
       <div className="mouse_scroll">
         <a href="#feature-property">
           <div className="icon">
-            <h4>Scroll Down</h4>
-            <p>to discover more</p>
+            <h4>{t('scrollDown')}</h4>
+            <p>{t('toDiscoverMore')}</p>
           </div>
           <div className="thumb">
             <Image

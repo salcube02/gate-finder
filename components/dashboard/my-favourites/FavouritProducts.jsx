@@ -34,7 +34,7 @@ const FavouritProducts = () => {
           </p>
           <a className="fp_price text-thm" href="#">
             ${item.price}
-            <small>/mo</small>
+            {/* <small>/mo</small> */}
           </a>
         </div>
       </div>

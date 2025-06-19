@@ -1,4 +1,10 @@
+'use client'
+
+import { useTranslations } from 'next-intl';
+
 const CheckBoxFilter = () => {
+  const t = useTranslations('dashboard');
+
   return (
     <>
       <div className="col-xxs-6 col-sm col-lg col-xl">
@@ -11,7 +17,7 @@ const CheckBoxFilter = () => {
                 id="customCheck1"
               />
               <label className="form-check-label" htmlFor="customCheck1">
-                Air Conditioning
+                {t('airConditioning')}
               </label>
             </div>
           </li>
@@ -25,7 +31,7 @@ const CheckBoxFilter = () => {
                 id="customCheck2"
               />
               <label className="form-check-label" htmlFor="customCheck2">
-                Lawn
+                {t('lawn')}
               </label>
             </div>
           </li>
@@ -39,7 +45,7 @@ const CheckBoxFilter = () => {
                 id="customCheck3"
               />
               <label className="form-check-label" htmlFor="customCheck3">
-                Swimming Pool
+                {t('swimmingPool')}
               </label>
             </div>
           </li>
@@ -58,7 +64,7 @@ const CheckBoxFilter = () => {
                 id="customCheck4"
               />
               <label className="form-check-label" htmlFor="customCheck4">
-                Barbeque
+                {t('barbeque')}
               </label>
             </div>
           </li>
@@ -72,7 +78,7 @@ const CheckBoxFilter = () => {
                 id="customCheck5"
               />
               <label className="form-check-label" htmlFor="customCheck5">
-                Microwave
+                {t('microwave')}
               </label>
             </div>
           </li>
@@ -86,7 +92,7 @@ const CheckBoxFilter = () => {
                 id="customCheck6"
               />
               <label className="form-check-label" htmlFor="customCheck6">
-                TV Cable
+                {t('tvCable')}
               </label>
             </div>
           </li>
@@ -105,7 +111,7 @@ const CheckBoxFilter = () => {
                 id="customCheck7"
               />
               <label className="form-check-label" htmlFor="customCheck7">
-                Dryer
+                {t('dryer')}
               </label>
             </div>
           </li>
@@ -119,7 +125,7 @@ const CheckBoxFilter = () => {
                 id="customCheck8"
               />
               <label className="form-check-label" htmlFor="customCheck8">
-                Outdoor Shower
+                {t('outdoorShower')}
               </label>
             </div>
           </li>
@@ -133,7 +139,7 @@ const CheckBoxFilter = () => {
                 id="customCheck9"
               />
               <label className="form-check-label" htmlFor="customCheck9">
-                Washer
+                {t('washer')}
               </label>
             </div>
           </li>
@@ -152,7 +158,7 @@ const CheckBoxFilter = () => {
                 id="customCheck10"
               />
               <label className="form-check-label" htmlFor="customCheck10">
-                Gym
+                {t('gym')}
               </label>
             </div>
           </li>
@@ -166,7 +172,7 @@ const CheckBoxFilter = () => {
                 id="customCheck11"
               />
               <label className="form-check-label" htmlFor="customCheck11">
-                Refrigerator
+                {t('refrigerator')}
               </label>
             </div>
           </li>
@@ -180,7 +186,7 @@ const CheckBoxFilter = () => {
                 id="customCheck12"
               />
               <label className="form-check-label" htmlFor="customCheck12">
-                WiFi
+                {t('wifi')}
               </label>
             </div>
           </li>
@@ -199,7 +205,7 @@ const CheckBoxFilter = () => {
                 id="customCheck13"
               />
               <label className="form-check-label" htmlFor="customCheck13">
-                Laundry
+                {t('laundry')}
               </label>
             </div>
           </li>
@@ -213,7 +219,7 @@ const CheckBoxFilter = () => {
                 id="customCheck14"
               />
               <label className="form-check-label" htmlFor="customCheck14">
-                Sauna
+                {t('sauna')}
               </label>
             </div>
           </li>
@@ -227,7 +233,7 @@ const CheckBoxFilter = () => {
                 id="customCheck15"
               />
               <label className="form-check-label" htmlFor="customCheck15">
-                Window Coverings
+                {t('windowCoverings')}
               </label>
             </div>
           </li>

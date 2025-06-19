@@ -1,25 +1,28 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 const WhyChoose = ({ style = "" }) => {
+  const t = useTranslations('home');
+
   const whyCooseContent = [
     {
       id: 1,
       icon: "flaticon-high-five",
-      title: "Trusted By Thousands",
-      descriptions: `Aliquam dictum elit vitae mauris facilisis at dictum urna
-      dignissim donec vel lectus vel felis.`,
+      title: t('trustedByThousands'),
+      descriptions: t('trustedByThousandsDesc'),
     },
     {
       id: 2,
       icon: "flaticon-home-1",
-      title: "Wide Renge Of Properties",
-      descriptions: `Aliquam dictum elit vitae mauris facilisis at dictum urna
-      dignissim donec vel lectus vel felis.`,
+      title: t('wideRangeOfProperties'),
+      descriptions: t('wideRangeOfPropertiesDesc'),
     },
     {
       id: 3,
       icon: "flaticon-profit",
-      title: "Financing Made Easy",
-      descriptions: `Aliquam dictum elit vitae mauris facilisis at dictum urna
-      dignissim donec vel lectus vel felis.`,
+      title: t('financingMadeEasy'),
+      descriptions: t('financingMadeEasyDesc'),
     },
   ];
 

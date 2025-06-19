@@ -1,4 +1,10 @@
+'use client'
+
+import { useTranslations } from 'next-intl';
+
 const Activities = () => {
+  const t = useTranslations('dashboard');
+
   return (
     <>
       <div className="grid">
@@ -12,8 +18,7 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Your listing <strong>Luxury Family Home</strong> has been
-              approved!.
+              {t('yourListingApproved', { listingName: t('luxuryFamilyHome') })}
             </p>
           </li>
         </ul>
@@ -31,7 +36,7 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Kathy Brown left a review on <strong>Renovated Apartment</strong>
+              {t('userLeftReview', { userName: t('kathyBrown'), listingName: t('renovatedApartment') })}
             </p>
           </li>
         </ul>
@@ -49,8 +54,7 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Someone favorites your <strong>Gorgeous Villa Bay View</strong>{" "}
-              listing!
+              {t('someoneFavoritedListing', { listingName: t('gorgeousVillaBayView') })}
             </p>
           </li>
         </ul>
@@ -68,8 +72,7 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Your listing <strong>Luxury Family Home</strong> has been
-              approved!
+              {t('yourListingApproved', { listingName: t('luxuryFamilyHome') })}
             </p>
           </li>
         </ul>
@@ -87,7 +90,7 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Kathy Brown left a review on <strong>Renovated Apartment</strong>
+              {t('userLeftReview', { userName: t('kathyBrown'), listingName: t('renovatedApartment') })}
             </p>
           </li>
         </ul>
@@ -105,8 +108,7 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Someone favorites your <strong>Gorgeous Villa Bay</strong> View
-              listing!
+              {t('someoneFavoritedListing', { listingName: `${t('gorgeousVillaBay')} View` })}
             </p>
           </li>
         </ul>

@@ -39,7 +39,8 @@ const index = () => {
                 <div className="single_property_social_share style2 static-title">
                   <div className="price">
                     <h2>
-                      $13,000<small>/mo</small>
+                      $13,0000
+                      {/* <small>/mo</small> */}
                     </h2>
                   </div>
                 </div>

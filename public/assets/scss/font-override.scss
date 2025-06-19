@@ -1,0 +1,61 @@
+/* Global Font Override - Replace Nunito with Poppins */
+
+/* Global body and html font setting */
+html,
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Override all instances of Nunito with Poppins */
+* {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Specific overrides for common elements */
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, button,
+input, textarea, select,
+.btn, .form-control,
+.nav-link, .dropdown-item {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Override for elements that specifically use Nunito variants */
+*[style*="font-family: 'Nunito'"],
+*[style*='font-family: "Nunito"'],
+*[style*="font-family: Nunito"] {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Override compiled CSS classes that might have Nunito */
+[class*="nunito"] {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Special handling for bold/semibold variants */
+.nunito-semibold,
+*[style*="Nunito SemiBold"] {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+/* Preserve icon fonts - CORRECTED */
+[class*="fa-"],
+.fa,
+.fas,
+.far,
+.fal,
+.fab {
+  font-family: "FontAwesome" !important;
+}
+
+/* Preserve Flaticon fonts */
+[class*="flaticon"] {
+  font-family: "Flaticon" !important;
+}
+
+/* Preserve FontAwesome specifically */
+*[style*="FontAwesome"],
+*[style*="FontAwesome5FreeSolid"] {
+  font-family: "FontAwesome" !important;
+} 

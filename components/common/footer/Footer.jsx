@@ -1,16 +1,21 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import Link from "next/link";
 import Social from "./Social";
 import SubscribeForm from "./SubscribeForm";
 
 const Footer = () => {
+  const footerT = useTranslations('footer');
+  const commonT = useTranslations('common');
+
   return (
     <>
       <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 pr0 pl0">
         <div className="footer_about_widget">
-          <h4>About Site</h4>
+          <h4>{footerT('aboutSite')}</h4>
           <p>
-            We’re reimagining how you buy, sell and rent. It’s now easier to get
-            into a place you love. So let’s do this, together.
+            {footerT('aboutSiteDesc')}
           </p>
         </div>
       </div>
@@ -18,22 +23,22 @@ const Footer = () => {
 
       <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
         <div className="footer_qlink_widget">
-          <h4>Quick Links</h4>
+          <h4>{commonT('quickLinks')}</h4>
           <ul className="list-unstyled">
             <li>
-              <Link href="/">About Us</Link>
+              <Link href="/">{footerT('aboutUs')}</Link>
             </li>
             <li>
-              <Link href="/">Terms & Conditions</Link>
+              <Link href="/">{footerT('termsConditions')}</Link>
             </li>
             <li>
-              <Link href="/">User’s Guide</Link>
+              <Link href="/">{footerT('usersGuide')}</Link>
             </li>
             <li>
-              <Link href="/">Support Center</Link>
+              <Link href="/">{footerT('supportCenter')}</Link>
             </li>
             <li>
-              <Link href="/">Press Info</Link>
+              <Link href="/">{footerT('pressInfo')}</Link>
             </li>
           </ul>
         </div>
@@ -42,7 +47,7 @@ const Footer = () => {
 
       <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
         <div className="footer_contact_widget">
-          <h4>Contact Us</h4>
+          <h4>{footerT('contact')}</h4>
           <ul className="list-unstyled">
             <li>
               <a href="mailto:info@keyfinder.net">info@keyfinder.net</a>
@@ -66,11 +71,11 @@ const Footer = () => {
 
       <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
         <div className="footer_social_widget">
-          <h4>Follow us</h4>
+          <h4>{commonT('followUs')}</h4>
           <ul className="mb30">
             <Social />
           </ul>
-          <h4>Subscribe</h4>
+          <h4>{commonT('subscribe')}</h4>
           <SubscribeForm />
         </div>
       </div>

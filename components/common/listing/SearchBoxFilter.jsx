@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addKeyword } from "../../../features/properties/propertiesSlice";
-import { v4 as uuidv4 } from "uuid";
 
 
 const SearchBoxFilter = () => {
@@ -13,24 +12,30 @@ const SearchBoxFilter = () => {
   // input state
   const [getKeyword, setKeyword] = useState(keyword);
 
-  // advanced state
-  const [getAdvanced, setAdvanced] = useState([
-    { id: uuidv4(), name: "Air Conditioning" },
-    { id: uuidv4(), name: "Barbeque" },
-    { id: uuidv4(), name: "Gym" },
-    { id: uuidv4(), name: "Microwave" },
-    { id: uuidv4(), name: "TV Cable" },
-    { id: uuidv4(), name: "Lawn" },
-    { id: uuidv4(), name: "Refrigerator" },
-    { id: uuidv4(), name: "Swimming Pool" },
-    { id: uuidv4(), name: "WiFi" },
-    { id: uuidv4(), name: "Sauna" },
-    { id: uuidv4(), name: "Dryer" },
-    { id: uuidv4(), name: "Washer" },
-    { id: uuidv4(), name: "Laundry" },
-    { id: uuidv4(), name: "Outdoor Shower" },
-    { id: uuidv4(), name: "Window Coverings" },
-  ]);
+  // advanced state - Initialize as empty array to prevent hydration mismatch
+  const [getAdvanced, setAdvanced] = useState([]);
+  
+  // Initialize advanced features after component mounts
+  useEffect(() => {
+    const initialAdvanced = [
+      { id: "air-conditioning", name: "Air Conditioning" },
+      { id: "barbeque", name: "Barbeque" },
+      { id: "gym", name: "Gym" },
+      { id: "microwave", name: "Microwave" },
+      { id: "tv-cable", name: "TV Cable" },
+      { id: "lawn", name: "Lawn" },
+      { id: "refrigerator", name: "Refrigerator" },
+      { id: "swimming-pool", name: "Swimming Pool" },
+      { id: "wifi", name: "WiFi" },
+      { id: "sauna", name: "Sauna" },
+      { id: "dryer", name: "Dryer" },
+      { id: "washer", name: "Washer" },
+      { id: "laundry", name: "Laundry" },
+      { id: "outdoor-shower", name: "Outdoor Shower" },
+      { id: "window-coverings", name: "Window Coverings" },
+    ];
+    setAdvanced(initialAdvanced);
+  }, []);
 
   const dispath = useDispatch();
 

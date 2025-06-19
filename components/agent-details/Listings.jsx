@@ -49,7 +49,7 @@ const Listings = () => {
                     className="fp_price"
                   >
                     ${item.price}
-                    <small>/mo</small>
+                    {/* <small>/mo</small> */}
                   </Link>
                 </div>
                 <p className="text-thm">{item.type}</p>

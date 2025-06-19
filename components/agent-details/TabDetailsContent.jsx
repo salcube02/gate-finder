@@ -75,7 +75,7 @@ const TabDetailsContent = () => {
         >
           <div className="product_single_content">
             <div className="mbp_pagination_comments">
-              <div className="mbp_first media">
+              <div className="mbp_first media w-100">
                 <div className="media-body agent-desc">
                   <DescriptionsText />
                 </div>

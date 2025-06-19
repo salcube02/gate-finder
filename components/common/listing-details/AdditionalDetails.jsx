@@ -1,21 +1,57 @@
+"use client"
+import { useTranslations, useLocale } from 'next-intl';
+
 const AdditionalDetails = () => {
+  const locale = useLocale();
+  
+  let t;
+  try {
+    t = useTranslations('additionalDetails');
+  } catch (error) {
+    console.warn('Translation hook failed, using fallbacks:', error);
+    t = (key) => {
+      const fallbacks = {
+        'deposit': 'Deposit',
+        'poolSize': 'Pool Size',
+        'additionalRooms': 'Additional Rooms',
+        'lastRemodelYear': 'Last remodel year',
+        'amenities': 'Amenities',
+        'equipment': 'Equipment',
+        'guestBath': 'Guest Bath',
+        'clubhouse': 'Clubhouse',
+        'grillGas': 'Grill - Gas'
+      };
+      return fallbacks[key] || key;
+    };
+  }
+
+  // Helper function to format area with proper unit
+  const formatArea = (value) => {
+    return locale === 'ar' ? `${value} قدم مربع` : `${value} Sqft`;
+  };
+
+  // Helper function to format percentage
+  const formatPercentage = (value) => {
+    return locale === 'ar' ? `%${value}` : `${value}%`;
+  };
+
   return (
     <>
       <div className="col-md-6 col-lg-6">
         <ul className="list-inline-item">
           <li>
             <p>
-              Deposit : <span>20%</span>
+              {t('deposit')} : <span>{formatPercentage('20')}</span>
             </p>
           </li>
           <li>
             <p>
-              Pool Size : <span>300 Sqft</span>
+              {t('poolSize')} : <span>{formatArea('300')}</span>
             </p>
           </li>
           <li>
             <p>
-              Additional Rooms : <span>Guest Bath</span>
+              {t('additionalRooms')} : <span>{t('guestBath')}</span>
             </p>
           </li>
         </ul>
@@ -24,17 +60,17 @@ const AdditionalDetails = () => {
         <ul className="list-inline-item">
           <li>
             <p>
-              Last remodel year : <span>1987</span>
+              {t('lastRemodelYear')} : <span>1987</span>
             </p>
           </li>
           <li>
             <p>
-              Amenities : <span>Clubhouse</span>
+              {t('amenities')} : <span>{t('clubhouse')}</span>
             </p>
           </li>
           <li>
             <p>
-              Equipment : <span>Grill - Gas</span>
+              {t('equipment')} : <span>{t('grillGas')}</span>
             </p>
           </li>
         </ul>

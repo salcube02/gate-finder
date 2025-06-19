@@ -30,18 +30,18 @@ const Header = () => {
         {/* <!-- Menu Toggle btn--> */}
         <Link href="/" className="navbar_brand float-start dn-smd">
           <Image
-            width={150}
-            height={60}
+            width={200}
+            height={55}
             className="logo1 img-fluid"
-            src="/assets/images/logo.svg"
-            alt="logo.svg"
+            src="/assets/images/logo-white.svg"
+            alt="logo.png"
           />
           <Image
-            width={150}
-            height={60}
+            width={200}
+            height={55}
             className="logo2 img-fluid"
-            src="/assets/images/logo.svg"
-            alt="logo.svg"
+            src="/assets/images/logo.png"
+            alt="logo.png"
           />
           {/* <span>FindHouse</span> */}
         </Link>

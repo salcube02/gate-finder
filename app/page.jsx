@@ -1,17 +1,12 @@
-import Wrapper from "@/components/layout/Wrapper";
-import HomeMain from './(homes)/home-1/page'
+'use client';
 
-export const metadata = {
-  title: 'Home-1 || FindHouse - Real Estate React Template',
-  description:
-    'FindHouse - Real Estate React Template',
-}
+import Wrapper from "@/components/layout/Wrapper";
+import HomeMain from "@/components/home";
 
 export default function Home() {
   return (
     <Wrapper>
       <HomeMain/>
     </Wrapper>
-    
-  )
-}
+  );
+} 

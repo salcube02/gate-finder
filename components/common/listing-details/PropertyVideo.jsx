@@ -2,10 +2,26 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from 'next-intl';
 import ModalVideo from "../ModalVideo";
 
 const PropertyVideo = () => {
   const [isOpen, setOpen] = useState(false);
+  
+  let t;
+  try {
+    t = useTranslations('propertyVideo');
+  } catch (error) {
+    console.warn('Translation hook failed, using fallbacks:', error);
+    t = (key) => {
+      const fallbacks = {
+        'propertyVideo': 'Property video',
+        'virtualTour': 'Virtual Tour'
+      };
+      return fallbacks[key] || key;
+    };
+  }
+  
   return (
     <>
       <ModalVideo setIsOpen={setOpen} isOpen={isOpen} videoId="oqNZOOWF8qM" />
@@ -17,7 +33,7 @@ const PropertyVideo = () => {
             href="#description"
             role="tab"
           >
-            Property video
+            {t('propertyVideo')}
           </a>
         </li>
         <li className="nav-item">
@@ -27,7 +43,7 @@ const PropertyVideo = () => {
             href="#listing"
             role="tab"
           >
-            Virtual Tour
+            {t('virtualTour')}
           </a>
         </li>
       </ul>

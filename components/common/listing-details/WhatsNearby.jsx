@@ -1,16 +1,38 @@
+"use client"
+import { useTranslations } from 'next-intl';
 import Ratings from "../../blog-details/Ratings";
 
 const WhatsNearby = () => {
+  let t;
+  try {
+    t = useTranslations('whatsNearby');
+  } catch (error) {
+    console.warn('Translation hook failed, using fallbacks:', error);
+    t = (key) => {
+      const fallbacks = {
+        'education': 'Education',
+        'healthMedical': 'Health & Medical',
+        'transportation': 'Transportation',
+        'eladiasKids': "Eladia's Kids",
+        'gearUpWithACLS': 'Gear Up With ACLS',
+        'brooklynBrainery': 'Brooklyn Brainery',
+        'miles': 'miles',
+        'reviews': 'reviews'
+      };
+      return fallbacks[key] || key;
+    };
+  }
+
   const nearbyContent = [
     {
       id: 1,
       styleClass: "",
-      title: " Education",
+      title: t('education'),
       icon: "flaticon-college-graduation",
       singleItem: [
         {
           id: 1,
-          name: "Eladia &apos;s Kids",
+          name: t('eladiasKids'),
           miles: "3.13",
           totalReview: "8895",
           ratings: (
@@ -21,7 +43,7 @@ const WhatsNearby = () => {
         },
         {
           id: 2,
-          name: " Gear Up With ACLS",
+          name: t('gearUpWithACLS'),
           miles: "4.66",
           totalReview: "7475",
           ratings: (
@@ -32,7 +54,7 @@ const WhatsNearby = () => {
         },
         {
           id: 3,
-          name: "Brooklyn Brainery",
+          name: t('brooklynBrainery'),
           miles: "3.31",
           totalReview: "3579",
           ratings: (
@@ -46,12 +68,12 @@ const WhatsNearby = () => {
     {
       id: 2,
       styleClass: "style2",
-      title: "Health & Medical",
+      title: t('healthMedical'),
       icon: "flaticon-heartbeat",
       singleItem: [
         {
           id: 1,
-          name: "Eladia &apos;s Kids",
+          name: t('eladiasKids'),
           miles: "3.13",
           totalReview: "8895",
           ratings: (
@@ -62,7 +84,7 @@ const WhatsNearby = () => {
         },
         {
           id: 2,
-          name: " Gear Up With ACLS",
+          name: t('gearUpWithACLS'),
           miles: "4.66",
           totalReview: "7475",
           ratings: (
@@ -73,7 +95,7 @@ const WhatsNearby = () => {
         },
         {
           id: 3,
-          name: "Brooklyn Brainery",
+          name: t('brooklynBrainery'),
           miles: "3.31",
           totalReview: "3579",
           ratings: (
@@ -87,12 +109,12 @@ const WhatsNearby = () => {
     {
       id: 3,
       styleClass: "style3",
-      title: " Transportation",
+      title: t('transportation'),
       icon: "flaticon-front-of-bus",
       singleItem: [
         {
           id: 1,
-          name: "Eladia &apos;s Kids",
+          name: t('eladiasKids'),
           miles: "3.13",
           totalReview: "8895",
           ratings: (
@@ -103,7 +125,7 @@ const WhatsNearby = () => {
         },
         {
           id: 2,
-          name: " Gear Up With ACLS",
+          name: t('gearUpWithACLS'),
           miles: "4.66",
           totalReview: "7475",
           ratings: (
@@ -114,7 +136,7 @@ const WhatsNearby = () => {
         },
         {
           id: 3,
-          name: "Brooklyn Brainery",
+          name: t('brooklynBrainery'),
           miles: "3.31",
           totalReview: "3579",
           ratings: (
@@ -141,13 +163,13 @@ const WhatsNearby = () => {
           {item.singleItem.map((val) => (
             <div className="single_line" key={val.id}>
               <p className="para">
-                {val.name} <span>({val.miles} miles)</span>
+                {val.name} <span>({val.miles} {t('miles')})</span>
               </p>
               <ul className="review">
                 <Ratings />
                 <li className="list-inline-item">
                   <span className="total_rive_count">
-                    {val.totalReview} reviews
+                    {val.totalReview} {t('reviews')}
                   </span>
                 </li>
               </ul>

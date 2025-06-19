@@ -60,7 +60,7 @@ const HeroSlider = () => {
             <div className="home-content position-relative text-center p0">
               <h2 className="banner_top_title">
                 ${item.price}
-                <small>/mo</small>
+                {/* <small>/mo</small> */}
               </h2>
               <h3 className="banner-title">{item.title}</h3>
               <ul className="prop_details ">

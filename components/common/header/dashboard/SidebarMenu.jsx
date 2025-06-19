@@ -1,52 +1,55 @@
 'use client'
 
 import Link from "next/link";
-
+import { useTranslations } from 'next-intl';
 import {
   isParentPageActive,
   isSinglePageActive,
 } from "../../../../utils/daynamicNavigation";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 
 const SidebarMenu = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const params = useParams();
+  const locale = params.locale || 'en';
+  const t = useTranslations('dashboard');
 
   const myProperties = [
-    { id: 1, name: "General Elements", route: "/my-properties" },
-    { id: 2, name: "Advanced Elements", route: "/my-properties" },
-    { id: 3, name: "Editors", route: "/my-properties" },
+    { id: 1, name: t('myProperties'), route: `/${locale}/my-properties` },
+    { id: 2, name: "Advanced Elements", route: `/${locale}/my-properties` },
+    { id: 3, name: "Editors", route: `/${locale}/my-properties` },
   ];
   const reviews = [
-    { id: 1, name: "My Reviews", route: "/my-review" },
-    { id: 2, name: "Visitor Reviews", route: "/my-review" },
+    { id: 1, name: t('myReviews'), route: `/${locale}/my-review` },
+    { id: 2, name: t('visitorReviews'), route: `/${locale}/my-review` },
   ];
   const manageAccount = [
     // {
     //   id: 1,
-    //   name: "My Package",
-    //   route: "/my-package",
+    //   name: t('myPackage'),
+    //   route: `/${locale}/my-package`,
     //   icon: "flaticon-box",
     // },
     {
       id: 2,
-      name: "My Profile",
-      route: "/my-profile",
+      name: t('myProfile'),
+      route: `/${locale}/my-profile`,
       icon: "flaticon-user",
     },
-    { id: 3, name: "Logout", route: "/login", icon: "flaticon-logout" },
+    // { id: 3, name: t('logout'), route: `/${locale}/login`, icon: "flaticon-logout" },
   ];
 
   return (
     <>
       <ul className="sidebar-menu">
         <li className="sidebar_header header">
-          <Link href="/">
+          <Link href={`/${locale}`}>
             <Image
-              width={150}
-              height={60}
-              src="/assets/images/logo-white.png"
-              alt="logo-white.png"
+              width={200}
+              height={55}
+              src="/assets/images/logo-white.svg"
+              alt="logo-white.svg"
             />
             {/* <span>FindHouse</span> */}
           </Link>
@@ -54,42 +57,42 @@ const SidebarMenu = () => {
         {/* End header */}
 
         <li className="title">
-          <span>Main</span>
+          <span>{t('main')}</span>
           <ul>
             <li
               className={`treeview ${
-                isSinglePageActive("/my-dashboard", pathname)
+                isSinglePageActive(`/${locale}/my-dashboard`, pathname)
                   ? "active"
                   : ""
               }`}
             >
-              <Link href="/my-dashboard">
-                <i className="flaticon-layers"></i>
-                <span> Dashboard</span>
+              <Link href={`/${locale}/my-dashboard`}>
+                <i className="flaticon-layers me-2 ms-2"></i>
+                <span> {t('dashboard')}</span>
               </Link>
             </li>
             <li
               className={`treeview ${
-                isSinglePageActive("/create-listing", pathname)
+                isSinglePageActive(`/${locale}/create-listing`, pathname)
                   ? "active"
                   : ""
               }`}
             >
-              <Link href="/create-listing">
-                <i className="flaticon-plus"></i>
-                <span> Create Project</span>
+              <Link href={`/${locale}/create-listing`}>
+                <i className="flaticon-plus me-2 ms-2"></i>
+                <span> {t('createProject')}</span>
               </Link>
             </li>
             <li
               className={`treeview ${
-                isSinglePageActive("/my-message", pathname)
+                isSinglePageActive(`/${locale}/my-message`, pathname)
                   ? "active"
                   : ""
               }`}
             >
-              {/* <Link href="/my-message">
-                <i className="flaticon-envelope"></i>
-                <span> Message</span>
+              {/* <Link href={`/${locale}/my-message`}>
+                <i className="flaticon-envelope me-2 ms-2"></i>
+                <span> {t('message')}</span>
               </Link> */}
             </li>
           </ul>
@@ -97,7 +100,7 @@ const SidebarMenu = () => {
         {/* End Main */}
 
         <li className="title">
-          {/* <span>Manage Listings</span> */}
+          {/* <span>{t('manageListings')}</span> */}
           <ul>
             {/* <li
               className={`treeview ${
@@ -105,14 +108,14 @@ const SidebarMenu = () => {
               }`}
             >
               <a data-bs-toggle="collapse" href="#my-property">
-                <i className="flaticon-home"></i> <span>My Properties</span>
+                <i className="flaticon-home me-2 ms-2"></i> <span>{t('myProperties')}</span>
                 <i className="fa fa-angle-down pull-right"></i>
               </a>
               <ul className="treeview-menu collapse" id="my-property">
                 {myProperties.map((item) => (
                   <li key={item.id}>
                     <Link href={item.route}>
-                      <i className="fa fa-circle"></i> {item.name}
+                      <i className="fa fa-circle me-2 ms-2"></i> {item.name}
                     </Link>
                   </li>
                 ))}
@@ -126,15 +129,15 @@ const SidebarMenu = () => {
               }`}
             >
               <a data-bs-toggle="collapse" href="#review">
-                <i className="flaticon-chat"></i>
-                <span>Reviews</span>
+                <i className="flaticon-chat me-2 ms-2"></i>
+                <span>{t('reviews')}</span>
                 <i className="fa fa-angle-down pull-right"></i>
               </a>
               <ul className="treeview-menu collapse" id="review">
                 {reviews.map((item) => (
                   <li key={item.id}>
                     <Link href={item.route}>
-                      <i className="fa fa-circle"></i> {item.name}
+                      <i className="fa fa-circle me-2 ms-2"></i> {item.name}
                     </Link>
                   </li>
                 ))}
@@ -144,26 +147,26 @@ const SidebarMenu = () => {
 
             {/* <li
               className={`treeview ${
-                isSinglePageActive("/my-favourites", pathname)
+                isSinglePageActive(`/${locale}/my-favourites`, pathname)
                   ? "active"
                   : ""
               }`}
             >
-              <Link href="/my-favourites">
-                <i className="flaticon-magnifying-glass"></i>
-                <span> My Favorites</span>
+              <Link href={`/${locale}/my-favourites`}>
+                <i className="flaticon-magnifying-glass me-2 ms-2"></i>
+                <span> {t('myFavorites')}</span>
               </Link>
             </li> */}
             {/* <li
               className={`treeview ${
-                isSinglePageActive("/my-saved-search", pathname)
+                isSinglePageActive(`/${locale}/my-saved-search`, pathname)
                   ? "active"
                   : ""
               }`}
             >
-              <Link href="/my-saved-search">
-                <i className="flaticon-magnifying-glass"></i>
-                <span> Saved Search</span>
+              <Link href={`/${locale}/my-saved-search`}>
+                <i className="flaticon-magnifying-glass me-2 ms-2"></i>
+                <span> {t('savedSearch')}</span>
               </Link>
             </li> */}
           </ul>
@@ -171,7 +174,7 @@ const SidebarMenu = () => {
         {/* End manage listing */}
 
         <li className="title">
-          <span>Manage Account</span>
+          <span>{t('manageAccount')}</span>
           <ul>
             {manageAccount.map((item) => (
               <li
@@ -181,7 +184,7 @@ const SidebarMenu = () => {
                 key={item.id}
               >
                 <Link href={item.route}>
-                  <i className={item.icon}></i> <span>{item.name}</span>
+                  <i className={`${item.icon} me-2 ms-2`}></i> <span>{item.name}</span>
                 </Link>
               </li>
             ))}

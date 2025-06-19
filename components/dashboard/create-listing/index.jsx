@@ -1,3 +1,6 @@
+'use client'
+
+import { useTranslations } from 'next-intl';
 import Header from "../../common/header/dashboard/Header";
 import SidebarMenu from "../../common/header/dashboard/SidebarMenu";
 import MobileMenu from "../../common/header/MobileMenu";
@@ -7,7 +10,9 @@ import FloorPlans from "./FloorPlans";
 import LocationField from "./LocationField";
 import PropertyMediaUploader from "./PropertyMediaUploader";
 
-const index = () => {
+const index = ({ locale }) => {
+  const t = useTranslations('dashboard');
+
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -29,7 +34,7 @@ const index = () => {
       {/* End sidebar_menu */}
 
       {/* <!-- Our Dashbord --> */}
-      <section className="our-dashbord dashbord bgc-f7 pb50">
+      <section className={`our-dashbord dashbord bgc-f7 pb50 ${locale === 'ar' ? 'rtl-dashboard' : 'ltr-dashboard'}`}>
         <div className="container-fluid ovh">
           <div className="row">
             <div className="col-lg-12 maxw100flex-992">
@@ -44,7 +49,7 @@ const index = () => {
                         data-bs-target="#DashboardOffcanvasMenu"
                         aria-controls="DashboardOffcanvasMenu"
                       >
-                        <i className="fa fa-bars pr10"></i> Dashboard Navigation
+                        <i className="fa fa-bars pe-10 ps-10"></i> {t('dashboardNavigation')}
                       </button>
                     </div>
                   </div>
@@ -53,8 +58,8 @@ const index = () => {
 
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
-                    <h2 className="breadcrumb_title">Add New Project</h2>
-                    <p>We are glad to see you again!</p>
+                    <h2 className="breadcrumb_title">{t('addNewProject')}</h2>
+                    <p>{t('weAreGladToSeeYouAgain')}</p>
                   </div>
                 </div>
                 {/* End .col */}
@@ -63,7 +68,7 @@ const index = () => {
                   <div className="my_dashboard_review">
                     <div className="row">
                       <div className="col-lg-12">
-                        <h3 className="mb30">Create Project</h3>
+                        <h3 className="mb30">{t('createProject')}</h3>
                       </div>
 
                       <CreateList />
@@ -72,7 +77,7 @@ const index = () => {
                   <div className="my_dashboard_review mt30">
                     <div className="row">
                       <div className="col-lg-12">
-                        <h3 className="mb30">Location</h3>
+                        <h3 className="mb30">{t('location')}</h3>
                       </div>
 
                       <LocationField />
@@ -80,20 +85,20 @@ const index = () => {
                   </div>
                   <div className="my_dashboard_review mt30">
                     <div className="col-lg-12">
-                      <h3 className="mb30">Detailed Information</h3>
+                      <h3 className="mb30">{t('detailedInformation')}</h3>
                     </div>
                     <DetailedInfo />
                   </div>
                   <div className="my_dashboard_review mt30">
                     <div className="col-lg-12">
-                      <h3 className="mb30">Project media</h3>
+                      <h3 className="mb30">{t('projectMedia')}</h3>
                     </div>
                     <PropertyMediaUploader />
                   </div>
                   <div className="my_dashboard_review mt30">
                     <div className="col-lg-12">
-                      <h3 className="mb30">Floor Plans</h3>
-                      <button className="btn admore_btn mb30">Add More</button>
+                      <h3 className="mb30">{t('projectFloorVillaPlans')}</h3>
+                      <button className="btn admore_btn mb30">{t('addMore')}</button>
                     </div>
                     <FloorPlans />
                   </div>
@@ -105,7 +110,7 @@ const index = () => {
               <div className="row mt50">
                 <div className="col-lg-12">
                   <div className="copyright-widget text-center">
-                    <p>© 2025 Key Finder. Made with love.</p>
+                    <p>{t('poweredByCloudev')}</p>
                   </div>
                 </div>
               </div>

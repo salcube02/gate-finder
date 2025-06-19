@@ -21,7 +21,7 @@ export default function ListingOne({property}) {
               <div className="price float-start fn-400">
                 <h2>
                   ${property?.price}
-                  <small>/mo</small>
+                  {/* <small>/mo</small> */}
                 </h2>
               </div>
 

@@ -1,8 +1,13 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import Link from "next/link";
 import findProperties from "../../data/findProperties";
 import Image from "next/image";
 
 const FindProperties = () => {
+  const t = useTranslations('listing');
+
   return (
     <>
       {findProperties.slice(0, 4).map((item) => (
@@ -20,7 +25,7 @@ const FindProperties = () => {
             <div className="overlay">
               <div className="details">
                 <h4>{item.name}</h4>
-                <p>{item.number} Properties</p>
+                <p>{item.number} {t('properties')}</p>
               </div>
             </div>
           </Link>

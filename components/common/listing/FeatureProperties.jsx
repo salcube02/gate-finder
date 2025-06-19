@@ -1,10 +1,26 @@
 'use client'
 
+import { useTranslations, useLocale } from 'next-intl';
 import Image from "next/image";
-import featureProContent from "../../../data/properties";
 import Slider from "react-slick";
 
 const FeatureProperties = () => {
+  const locale = useLocale();
+  
+  let t;
+  try {
+    t = useTranslations('featureProperties');
+  } catch (error) {
+    console.warn('Translation hook failed, using fallbacks:', error);
+    t = (key) => {
+      const fallbacks = {
+        'pricePrefix': '$',
+        'loading': 'Loading...'
+      };
+      return fallbacks[key] || key;
+    };
+  }
+
   const settings = {
     dots: true,
     arrows: false,
@@ -14,6 +30,22 @@ const FeatureProperties = () => {
     autoplay: false,
     speed: 1000,
   };
+
+  // Load appropriate data based on locale
+  const getPropertiesData = () => {
+    try {
+      if (locale === 'ar') {
+        return require("../../../data/properties-ar");
+      } else {
+        return require("../../../data/properties");
+      }
+    } catch (error) {
+      console.error('Error loading properties data:', error);
+      return [];
+    }
+  };
+
+  const featureProContent = getPropertiesData();
 
   return (
     <>
@@ -39,8 +71,8 @@ const FeatureProperties = () => {
                     ))}
                   </ul>
                   <a className="fp_price" href="#">
-                    ${item.price}
-                    <small>/mo</small>
+                    {t('pricePrefix')}{parseInt(item.price).toLocaleString()}
+                    {/* <small>/mo</small> */}
                   </a>
                   <h4 className="posr color-white">{item.title}</h4>
                 </div>

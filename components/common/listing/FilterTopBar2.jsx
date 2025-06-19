@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslations } from 'next-intl';
 import {
   addFeatured,
   addStatusType,
@@ -13,6 +14,7 @@ const FilterTopBar2 = () => {
   const { statusType, featured } = useSelector((state) => state.filter);
   const [getStatus, setStatus] = useState(statusType);
   const [getFeatured, setFeatured] = useState(featured);
+  const t = useTranslations();
 
   const dispatch = useDispatch();
 
@@ -41,9 +43,9 @@ const FilterTopBar2 = () => {
               {length}{" "}
             </span>
             {length !== 0 ? (
-              "Search results"
+              t('listing.searchResults')
             ) : (
-              <span className="text-danger">Not found results</span>
+              <span className="text-danger">{t('common.noResults')}</span>
             )}
           </p>
         </div>
@@ -54,27 +56,27 @@ const FilterTopBar2 = () => {
         <div className="right_area text-end tac-xsd">
           <ul>
             <li className="list-inline-item">
-              <span className="stts">Status:</span>
+              <span className="stts">{t('listing.status')}:</span>
               <select
                 className="selectpicker show-tick"
                 onChange={(e) => setStatus(e.target.value)}
                 value={getStatus}
               >
-                <option value="">All Status</option>
-                <option value="old">Old</option>
-                <option value="recent">Recent</option>
+                <option value="">{t('listing.allStatus')}</option>
+                <option value="old">{t('listing.oldest')}</option>
+                <option value="recent">{t('listing.newest')}</option>
               </select>
             </li>
             <li className="list-inline-item">
-              <span className="shrtby">Sort by:</span>
+              <span className="shrtby">{t('listing.sortBy')}:</span>
               <select
                 className="selectpicker show-tick"
                 onChange={(e) => setFeatured(e.target.value)}
                 value={getFeatured}
               >
-                <option value="">Featured All</option>
-                <option value="sale">Sale</option>
-                <option value="rent">Rent</option>
+                <option value="">{t('listing.featuredAll')}</option>
+                <option value="sale">{t('listing.sale')}</option>
+                <option value="rent">{t('listing.rent')}</option>
               </select>
             </li>
           </ul>

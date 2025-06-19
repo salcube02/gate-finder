@@ -1,11 +1,16 @@
+'use client'
+
+import { useTranslations } from 'next-intl';
 import CheckBoxFilter from "../../common/CheckBoxFilter";
 
 const DetailedInfo = () => {
+  const t = useTranslations('dashboard');
+
   return (
     <div className="row">
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="propertyId">Project ID</label>
+          <label htmlFor="propertyId">{t('projectId')}</label>
           <input type="text" className="form-control" id="propertyId" />
         </div>
       </div>
@@ -13,7 +18,7 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="propertyASize">Area Size</label>
+          <label htmlFor="propertyASize">{t('areaSize')}</label>
           <input type="text" className="form-control" id="propertyASize" />
         </div>
       </div>
@@ -21,7 +26,7 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="sizePrefix">Size Prefix</label>
+          <label htmlFor="sizePrefix">{t('sizePrefix')}</label>
           <input type="text" className="form-control" id="sizePrefix" />
         </div>
       </div>
@@ -29,7 +34,7 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="landArea">Land Area</label>
+          <label htmlFor="landArea">{t('landArea')}</label>
           <input type="text" className="form-control" id="landArea" />
         </div>
       </div>
@@ -37,7 +42,7 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="LASPostfix">Land Area Size Postfix</label>
+          <label htmlFor="LASPostfix">{t('landAreaSizePostfix')}</label>
           <input type="text" className="form-control" id="LASPostfix" />
         </div>
       </div>
@@ -45,7 +50,7 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="bedRooms">Bedrooms</label>
+          <label htmlFor="bedRooms">{t('bedrooms')}</label>
           <input type="text" className="form-control" id="bedRooms" />
         </div>
       </div>
@@ -53,7 +58,7 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="bathRooms">Bathrooms</label>
+          <label htmlFor="bathRooms">{t('bathrooms')}</label>
           <input type="text" className="form-control" id="bathRooms" />
         </div>
       </div>
@@ -61,7 +66,7 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="garages">Garages</label>
+          <label htmlFor="garages">{t('garages')}</label>
           <input type="text" className="form-control" id="garages" />
         </div>
       </div>
@@ -69,7 +74,7 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="garagesSize">Garages Size</label>
+          <label htmlFor="garagesSize">{t('garagesSize')}</label>
           <input type="text" className="form-control" id="garagesSize" />
         </div>
       </div>
@@ -77,7 +82,7 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="yearBuild">Year Built</label>
+          <label htmlFor="yearBuild">{t('yearBuilt')}</label>
           <input type="text" className="form-control" id="yearBuild" />
         </div>
       </div>
@@ -85,7 +90,7 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="videoUrl">Video URL</label>
+          <label htmlFor="videoUrl">{t('videoUrl')}</label>
           <input type="text" className="form-control" id="videoUrl" />
         </div>
       </div>
@@ -93,21 +98,21 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="virtualTour">360° Virtual Tour</label>
+          <label htmlFor="virtualTour">{t('virtualTour')}</label>
           <input type="text" className="form-control" id="virtualTour" />
         </div>
       </div>
 
       <div className="col-xl-12">
-        <h4 className="mb10">Amenities</h4>
+        <h4 className="mb10">{t('amenities')}</h4>
       </div>
 
       <CheckBoxFilter />
 
       <div className="col-xl-12">
         <div className="my_profile_setting_input overflow-hidden mt20">
-          <button className="btn btn1 float-start">Back</button>
-          <button className="btn btn2 float-end">Next</button>
+          <button className="btn btn1 float-start">{t('back')}</button>
+          <button className="btn btn2 float-end">{t('next')}</button>
         </div>
       </div>
       {/* End .col */}

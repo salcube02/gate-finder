@@ -1,11 +1,13 @@
 'use client'
 
 import { useState } from "react";
+import { useTranslations } from 'next-intl';
 import selectedFiles from "../../../utils/selectedFiles";
 import Image from "next/image";
 
 const PropertyMediaUploader = () => {
   const [propertySelectedImgs, setPropertySelectedImgs] = useState([]);
+  const t = useTranslations('dashboard');
 
   // multiple image select
   const multipleImage = (e) => {
@@ -74,19 +76,19 @@ const PropertyMediaUploader = () => {
           <div className="icon">
             <span className="flaticon-download"></span>
           </div>
-          <p>Drag and drop images here</p>
+          <p>{t('dragAndDropImages')}</p>
         </div>
       </div>
       {/* End .col */}
 
       <div className="col-xl-6">
         <div className="resume_uploader mb30">
-          <h3>Attachments</h3>
+          <h3>{t('attachments')}</h3>
           <form className="form-inline d-flex flex-wrap wrap">
             <input className="upload-path" />
             <label className="upload">
               <input type="file" />
-              Select Attachment
+              {t('selectAttachment')}
             </label>
           </form>
         </div>
@@ -95,8 +97,8 @@ const PropertyMediaUploader = () => {
 
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start">Back</button>
-          <button className="btn btn2 float-end">Next</button>
+          <button className="btn btn1 float-start">{t('back')}</button>
+          <button className="btn btn2 float-end">{t('next')}</button>
         </div>
       </div>
       {/* End .col */}

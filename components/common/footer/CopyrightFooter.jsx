@@ -36,7 +36,7 @@ const CopyrightFooter = () => {
             >
               ib-themes
             </a> */}
-             All rights reserved.
+               Powered by CLOUDEV | All rights reserved.
           </p>
         </div>
       </div>

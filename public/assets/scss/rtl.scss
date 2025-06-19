@@ -1,0 +1,877 @@
+/* RTL Styles for Arabic Language */
+
+html[dir="rtl"] {
+  font-family: 'Tajawal', 'Poppins', sans-serif !important;
+}
+
+html[dir="ltr"] {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+html[dir="rtl"] body {
+  
+}
+
+[dir="rtl"] {
+  // Font family for Arabic
+  font-family: 'Tajawal', 'Poppins', sans-serif !important;
+
+  // Fix body overlay for RTL to prevent white page
+  body.body_overlay {
+    &:before {
+      transform: translate(-360px, 0) !important;
+    }
+  }
+  
+  // Text alignment
+  
+  
+  // Bootstrap utility classes adjustments
+  .float-start {
+    float: right !important;
+  }
+  
+  .float-end {
+    float: left !important;
+  }
+  
+  .text-start {
+    text-align: right !important;
+  }
+  
+  .text-end {
+    text-align: left !important;
+  }
+  
+  // Padding adjustments
+  .pe-1, .px-1 { padding-right: 0 !important; padding-left: 0.25rem !important; }
+  .pe-2, .px-2 { padding-right: 0 !important; padding-left: 0.5rem !important; }
+  .pe-3, .px-3 { padding-right: 0 !important; padding-left: 1rem !important; }
+  .pe-4, .px-4 { padding-right: 0 !important; padding-left: 1.5rem !important; }
+  .pe-5, .px-5 { padding-right: 0 !important; padding-left: 3rem !important; }
+  
+  .ps-1, .px-1 { padding-left: 0 !important; padding-right: 0.25rem !important; }
+  .ps-2, .px-2 { padding-left: 0 !important; padding-right: 0.5rem !important; }
+  .ps-3, .px-3 { padding-left: 0 !important; padding-right: 1rem !important; }
+  .ps-4, .px-4 { padding-left: 0 !important; padding-right: 1.5rem !important; }
+  .ps-5, .px-5 { padding-left: 0 !important; padding-right: 3rem !important; }
+  
+  // Margin adjustments
+  .me-1, .mx-1 { margin-right: 0 !important; margin-left: 0.25rem !important; }
+  .me-2, .mx-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+  .me-3, .mx-3 { margin-right: 0 !important; margin-left: 1rem !important; }
+  .me-4, .mx-4 { margin-right: 0 !important; margin-left: 1.5rem !important; }
+  .me-5, .mx-5 { margin-right: 0 !important; margin-left: 3rem !important; }
+  
+  .ms-1, .mx-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+  .ms-2, .mx-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
+  .ms-3, .mx-3 { margin-left: 0 !important; margin-right: 1rem !important; }
+  .ms-4, .mx-4 { margin-left: 0 !important; margin-right: 1.5rem !important; }
+  .ms-5, .mx-5 { margin-left: 0 !important; margin-right: 3rem !important; }
+  
+  // Navigation specific
+  .navbar-nav {
+    .nav-link {
+      
+    }
+  }
+  
+  .dropdown-menu {
+    left: auto !important;
+    right: 0 !important;
+  }
+  
+  // Header adjustments
+  .header-nav {
+    .navbar_brand {
+      float: right !important;
+    }
+  }
+  
+  // Hero section adjustments
+  .home-banner-slider {
+    .slide-content {
+      
+      
+      .banner-title {
+        
+      }
+      
+      .banner-text {
+        
+      }
+    }
+  }
+  
+  // Card adjustments
+  .card {
+    .card-body {
+      
+    }
+  }
+  
+  // Form adjustments
+  .form-control {
+    
+    
+    &::placeholder {
+      
+    }
+  }
+  
+  .form-select {
+    background-position: left 0.75rem center;
+    padding-left: 2.25rem;
+    padding-right: 0.75rem;
+  }
+  
+  // Button adjustments
+  .btn {
+    .flaticon-plus {
+      margin-left: 0.5rem;
+      margin-right: 0;
+    }
+  }
+  
+  // List adjustments
+  .list-inline-item {
+    &:not(:last-child) {
+      margin-left: 0.5rem;
+      margin-right: 0;
+    }
+  }
+  
+  // Sidebar adjustments
+  .sidebar {
+    .widget {
+      
+    }
+  }
+  
+  // Property card adjustments
+  .for-sale {
+    .fp1 {
+      .fp1-details {
+        
+        
+        .fp1-name {
+          
+        }
+        
+        .fp1-location {
+          
+        }
+        
+        .fp1-meta {
+          .flaticon-bed,
+          .flaticon-bathtub,
+          .flaticon-garage {
+            margin-left: 0.5rem;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  
+  // Featured Properties specific adjustments
+  .feat_property {
+    .details {
+      .tc_content {
+        
+        
+        h4 {
+          
+        }
+        
+        p {
+          
+          
+          .flaticon-placeholder {
+            margin-left: 0.5rem;
+            margin-right: 0;
+          }
+        }
+        
+        .prop_details {
+          
+          
+          li {
+            &:not(:last-child) {
+              margin-left: 1rem;
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Listing half-map specific adjustments
+  .our-listing_map2 {
+    .sidebar_switch {
+      &.filter-let-top {
+        text-align: left !important;
+      }
+    }
+
+    .half_map_area_content {
+      .listing_list_style {
+        .grid_list_search_result {
+          .row {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  // Offcanvas RTL adjustments
+  .offcanvas-start {
+    left: auto !important;
+    right: 0 !important;
+    border-left: var(--bs-border-width) solid var(--bs-border-color) !important;
+    border-right: none !important;
+  }
+
+  .offcanvas-header {
+    .offcanvas-title {
+      text-align: right;
+      margin-right: 0;
+      margin-left: auto;
+    }
+
+    .btn-close {
+      margin-left: auto;
+      margin-right: 0;
+    }
+  }
+
+  // Mobile menu RTL fixes
+  .mobile-menu {
+    .header.stylehome1 {
+      .main_logo_home2 {
+        text-align: center;
+      }
+      
+      .menu_bar_home2 {
+        float: left;
+        
+        li {
+          &.list-inline-item {
+            &:first-child {
+              margin-left: 0;
+              margin-right: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Ensure mobile menu visibility
+  .stylehome1 {
+    .mm-menu {
+      .mm-panel {
+        .mm-listview {
+          .mm-listitem {
+            .mm-listitem__text {
+              text-align: right;
+              padding-right: 20px;
+              padding-left: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Grid/List button adjustments
+  .listing_list_style {
+    .grid_list_search_result {
+      text-align: right;
+    }
+  }
+
+  // Filter adjustments
+  .sidebar_switch {
+    text-align: left !important;
+    
+    &.style2 {
+      text-align: left !important;
+    }
+  }
+
+  // Property footer adjustments
+  .feat_property {
+    .details {
+      .fp_footer {
+        .fp_meta {
+          &.float-start {
+            float: right !important;
+          }
+          
+          li {
+            &:not(:first-child) {
+              margin-right: 0.5rem;
+              margin-left: 0;
+            }
+          }
+        }
+        
+        .fp_pdate {
+          &.float-end {
+            float: left !important;
+          }
+        }
+      }
+    }
+    
+    .thumb {
+      .thmb_cntnt {
+        .tag {
+          left: auto;
+          right: 15px;
+        }
+        
+        .icon {
+          right: auto;
+          left: 15px;
+        }
+        
+        .fp_price {
+          right: auto;
+          left: 15px;
+        }
+      }
+    }
+  }
+
+  // Home search form adjustments
+  .home1-advnc-search {
+    .h1ads_1st_list {
+      li {
+        &.list-inline-item {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  
+     // Tab adjustments
+   .nav-pills {
+     .nav-item {
+       .nav-link {
+         text-align: center;
+       }
+     }
+   }
+   
+   // Why Choose Us section adjustments
+   .why_chose_us {
+     
+     
+    //  .icon {
+    //    float: right;
+    //    margin-left: 1rem;
+    //    margin-right: 0;
+    //  }
+     
+     .details {
+       
+       
+       h4 {
+         
+       }
+       
+       p {
+         
+       }
+     }
+   }
+   
+   // Mouse scroll adjustments
+   .mouse_scroll {
+     .icon {
+       text-align: center;
+       
+       h4, p {
+         text-align: center;
+       }
+     }
+   }
+   
+   // City finder section adjustments
+   .city-text {
+     
+   }
+   
+   // Property city cards adjustments
+   .properti_city {
+     .overlay {
+       .details {
+         
+         
+         h4 {
+           
+         }
+         
+         p {
+           
+         }
+       }
+     }
+   }
+   
+   // Main title adjustments
+   .main-title {
+     
+     
+     h2 {
+       
+     }
+     
+     p {
+       
+     }
+     
+     &.text-center {
+       text-align: center !important;
+       
+       h2, p {
+         text-align: center !important;
+       }
+     }
+   }
+   
+   // Home text adjustments
+   .home-text {
+     text-align: center !important;
+     
+     h2, p {
+       text-align: center !important;
+     }
+     
+     &.text-center {
+       text-align: center !important;
+       
+       h2, p {
+         text-align: center !important;
+       }
+     }
+   }
+   
+   // Home content adjustments
+   .home_content {
+     text-align: center;
+     
+     .home-text {
+       margin-bottom: 2rem;
+     }
+   }
+   
+   // Featured property slider adjustments
+   .feature_property_slider {
+     .slick-dots {
+       text-align: center;
+       
+       li {
+         margin: 0 5px;
+       }
+     }
+   }
+   
+   // Additional search form adjustments
+   .home_adv_srch_opt {
+     text-align: center;
+     width: 100%;
+     
+     .nav-pills {
+       text-align: center;
+       justify-content: center;
+       margin-bottom: 1rem;
+       
+       .nav-item {
+         margin: 0 2px;
+         
+         .nav-link {
+           text-align: center;
+           padding: 0.75rem 1.5rem;
+         }
+       }
+     }
+   }
+   
+   .home1_adsrchfrm {
+     .home1-advnc-search {
+       text-align: center;
+       
+       .h1ads_1st_list {
+         text-align: center;
+         justify-content: center;
+         align-items: center;
+         
+         li {
+           margin: 5px;
+           
+           &.list-inline-item {
+             display: inline-block;
+             vertical-align: top;
+           }
+         }
+         
+         .form-group {
+           text-align: center;
+         }
+         
+         .search_option_button {
+           text-align: center;
+         }
+       }
+     }
+   }
+   
+   // Container and row adjustments
+   .container {
+     .row {
+       .posr {
+         position: relative;
+       }
+     }
+   }
+  
+     // Footer adjustments
+   .footer_one {
+     .footer-widget {
+       .footer-title {
+         
+       }
+       
+       .footer-links {
+         li {
+           
+         }
+       }
+     }
+     
+     .footer_about_widget,
+     .footer_qlink_widget,
+     .footer_contact_widget,
+     .footer_social_widget {
+       
+       
+       h4 {
+         
+       }
+       
+       p, ul {
+         
+       }
+       
+       ul li {
+         
+       }
+     }
+   }
+
+   @media (min-width: 992px) {
+    .offset-lg-3 {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+}
+   
+   // Call to Action adjustments
+   .start_partner {
+     
+     
+     &.tac-smd {
+       @media (max-width: 768px) {
+         text-align: center !important;
+       }
+     }
+     
+     h2 {
+       
+     }
+     
+     p {
+       
+     }
+   }
+   
+   .parner_reg_btn {
+     &.text-right {
+       text-align: left !important;
+     }
+     
+     &.tac-smd {
+       @media (max-width: 768px) {
+         text-align: center !important;
+       }
+     }
+   }
+  
+  // Search form adjustments
+  .advance-search-modal {
+    .advance-search-form {
+      .form-group {
+        
+        
+        label {
+          
+        }
+      }
+    }
+  }
+  
+  // Dashboard adjustments
+  .dashboard-wrapper {
+    .dashboard-sidebar {
+      .sidebar-menu {
+        li {
+          a {
+            
+            
+            i {
+              margin-left: 0.75rem;
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Table adjustments
+  .table {
+    th, td {
+      
+    }
+    
+    &.table-bordered {
+      border-left: 1px solid #dee2e6;
+      border-right: none;
+      
+      th, td {
+        border-left: 1px solid #dee2e6;
+        border-right: none;
+      }
+    }
+  }
+  
+  // Pagination adjustments
+  .pagination {
+    .page-link {
+      .fa-angle-left::before {
+        content: "\f105"; // Change to right arrow
+      }
+      
+      .fa-angle-right::before {
+        content: "\f104"; // Change to left arrow
+      }
+    }
+  }
+  
+  // Modal adjustments
+  .modal {
+    .modal-dialog {
+      .modal-content {
+        .modal-header {
+          .btn-close {
+            margin-left: auto;
+            margin-right: 0;
+          }
+        }
+        
+        .modal-body {
+          
+        }
+      }
+    }
+  }
+  
+  // Carousel adjustments
+  .carousel {
+    .carousel-control-prev {
+      left: auto;
+      right: 0;
+    }
+    
+    .carousel-control-next {
+      right: auto;
+      left: 0;
+    }
+    
+    .carousel-indicators {
+      [data-bs-slide-to] {
+        text-indent: 0;
+      }
+    }
+  }
+}
+
+// Language switcher specific styles
+.language-switcher {
+  .dropdown-menu {
+    min-width: 150px;
+    
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      
+      img {
+        flex-shrink: 0;
+      }
+      
+      &.active {
+        background-color: #007bff;
+        color: white;
+        
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+  
+  [dir="rtl"] & {
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+      
+    }
+    
+    .dropdown-item {
+      img {
+        margin-left: 0.5rem;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+// Listing Details RTL specific styles
+[dir="rtl"] {
+  .rtl-layout {
+    .listing_single_description2 {
+      text-align: right;
+      
+      .single_property_title {
+        h2 {
+          text-align: right;
+        }
+        
+        p {
+          text-align: right;
+        }
+      }
+      
+      .single_property_social_share {
+        .price {
+          h2 {
+            text-align: right;
+            direction: rtl;
+          }
+        }
+      }
+    }
+  }
+}
+
+[dir="ltr"] {
+  .ltr-layout {
+    .listing_single_description2 {
+      .single_property_social_share {
+        .price {
+          h2 {
+            text-align: left;
+            direction: ltr;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile-specific RTL fixes to prevent white page issue
+@media (max-width: 991.98px) {
+  [dir="rtl"] {
+      // Fix body overlay that causes white page in RTL mobile
+  body.body_overlay {
+    position: relative !important;
+    transform: none !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  body.body_overlay:before {
+    transform: translate(-360px, 0) !important;
+    display: none !important; // Hide overlay on mobile RTL to prevent white page
+  }
+
+    // Ensure mobile menu doesn't break
+    .mobile-menu {
+      display: block !important;
+      visibility: visible !important;
+      
+      .header.stylehome1 {
+        position: relative;
+        background: #fff;
+        
+        .main_logo_home2 {
+          padding: 15px 0;
+        }
+      }
+    }
+
+    // Fix offcanvas positioning on mobile
+    .offcanvas-start {
+      transform: translateX(100%) !important;
+      
+      &.show {
+        transform: translateX(0) !important;
+      }
+    }
+
+    // Ensure body doesn't get hidden
+    body {
+      overflow-x: visible !important;
+    }
+
+    // Fix for mobile viewport
+    .stylehome1 {
+      &.h0 {
+        &.mega-menu-wrapper {
+          position: relative;
+          z-index: 999;
+        }
+      }
+    }
+  }
+}
+
+// Additional mobile fixes for better RTL support
+@media (max-width: 767.98px) {
+  [dir="rtl"] {
+    .home_content {
+      text-align: center;
+      padding: 20px 15px;
+    }
+
+    .home1_adsrchfrm {
+      margin: 20px 0;
+      
+      .home1-advnc-search {
+        padding: 20px 15px;
+      }
+    }
+
+    // Ensure proper scrolling
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+  }
+} 

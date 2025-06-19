@@ -7,6 +7,7 @@ const PopupSignInUp = () => {
       tabIndex="-1"
       role="dialog"
       aria-hidden="true"
+      style={{overflowY:"hidden"}}
     >
       <div
         className="modal-dialog modal-dialog-centered modal-lg"
