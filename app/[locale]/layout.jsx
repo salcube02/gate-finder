@@ -1,6 +1,7 @@
 import "../../public/assets/scss/index.scss";
 import "../../public/assets/scss/rtl.scss";
 import "../../public/assets/scss/mobile-rtl-fix.css";
+import "../../public/assets/scss/arabic-font.scss";
 import "rc-slider/assets/index.css";
 import ClientLayout from "@/components/layout/ClientLayout";
 
@@ -44,7 +45,7 @@ export default async function LocaleLayout({ children, params }) {
         />
         <link rel="icon" href="/assets/images/favicon.ico" />
       </head>
-      <body className={isRTL ? 'rtl' : 'ltr'}>
+      <body className={`${isRTL ? 'rtl' : 'ltr'} ${locale === 'ar' ? 'arabic-font' : 'english-font'}`}>
         <ClientLayout locale={locale}>
           {children}
         </ClientLayout>

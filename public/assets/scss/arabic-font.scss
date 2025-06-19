@@ -1,0 +1,124 @@
+/* Zahra Arabic Regular Font */
+@font-face {
+  font-family: "Zahra Arabic Regular";
+  src: url("../fonts/Zahra Arabic Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Additional font weights and styles for Zahra Arabic Regular */
+@font-face {
+  font-family: "Zahra Arabic Regular";
+  src: url("../fonts/Zahra Arabic Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Zahra Arabic Regular";
+  src: url("../fonts/Zahra Arabic Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Zahra Arabic Regular";
+  src: url("../fonts/Zahra Arabic Regular.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Zahra Arabic Regular";
+  src: url("../fonts/Zahra Arabic Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global Arabic Font Class */
+.arabic-font,
+.arabic-font *,
+.arabic-font h1, .arabic-font h2, .arabic-font h3, .arabic-font h4, .arabic-font h5, .arabic-font h6,
+.arabic-font p, .arabic-font span, .arabic-font div, .arabic-font a, .arabic-font button,
+.arabic-font input, .arabic-font textarea, .arabic-font select,
+.arabic-font .btn, .arabic-font .form-control,
+.arabic-font .nav-link, .arabic-font .dropdown-item {
+  font-family: "Zahra Arabic Regular", "Tajawal", "Poppins", sans-serif !important;
+  font-size: 1.1em !important;
+}
+
+/* Specific font size adjustments for different elements in Arabic */
+.arabic-font h1, .arabic-font .h1 { font-size: 2.2em !important; }
+.arabic-font h2, .arabic-font .h2 { font-size: 1.4em !important; }
+.arabic-font h3, .arabic-font .h3 { font-size: 1.2em !important; }
+.arabic-font h4, .arabic-font .h4 { font-size: 1.1em !important; }
+.arabic-font h5, .arabic-font .h5 { font-size: 1.05em !important; }
+.arabic-font h6, .arabic-font .h6 { font-size: 1em !important; }
+
+/* Body text and paragraphs */
+.arabic-font p,
+.arabic-font span,
+.arabic-font div,
+.arabic-font a {
+  font-size: 1em !important;
+}
+
+/* Form elements */
+.arabic-font input,
+.arabic-font textarea,
+.arabic-font select,
+.arabic-font .form-control {
+  font-size: 1em !important;
+}
+
+/* Buttons and navigation */
+.arabic-font button,
+.arabic-font .btn,
+.arabic-font .nav-link,
+.arabic-font .dropdown-item {
+  font-size: 1em !important;
+}
+
+/* Override specific font family declarations in Arabic mode */
+.arabic-font .ff-Poppins {
+  font-family: "Zahra Arabic Regular", "Tajawal", "Poppins", sans-serif !important;
+}
+
+/* Preserve icon fonts when using Arabic font */
+.arabic-font [class*="fa-"],
+.arabic-font .fa,
+.arabic-font .fas,
+.arabic-font .far,
+.arabic-font .fal,
+.arabic-font .fab {
+  font-family: "FontAwesome" !important;
+}
+
+.arabic-font [class*="flaticon"] {
+  font-family: "Flaticon" !important;
+}
+
+/* English font class for fallback */
+.english-font,
+.english-font * {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Preserve icon fonts when using English font */
+.english-font [class*="fa-"],
+.english-font .fa,
+.english-font .fas,
+.english-font .far,
+.english-font .fal,
+.english-font .fab {
+  font-family: "FontAwesome" !important;
+}
+
+.english-font [class*="flaticon"] {
+  font-family: "Flaticon" !important;
+} 

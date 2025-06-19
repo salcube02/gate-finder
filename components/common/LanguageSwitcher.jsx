@@ -11,7 +11,24 @@ const LanguageSwitcher = () => {
     // Get the current language from localStorage or default to 'en'
     const savedLocale = localStorage.getItem('preferredLanguage') || 'en';
     setCurrentLocale(savedLocale);
+    
+    // Apply font class based on saved locale
+    applyFontClass(savedLocale);
   }, []);
+
+  const applyFontClass = (locale) => {
+    const body = document.body;
+    
+    // Remove existing font classes
+    body.classList.remove('arabic-font', 'english-font');
+    
+    // Add appropriate font class
+    if (locale === 'ar') {
+      body.classList.add('arabic-font');
+    } else {
+      body.classList.add('english-font');
+    }
+  };
 
   const handleClick = () => {
     const newLocale = currentLocale === 'en' ? 'ar' : 'en';
@@ -19,6 +36,9 @@ const LanguageSwitcher = () => {
     // Save the new language preference
     localStorage.setItem('preferredLanguage', newLocale);
     setCurrentLocale(newLocale);
+    
+    // Apply the font class immediately
+    applyFontClass(newLocale);
     
     // Get current path and replace the locale
     const currentPath = window.location.pathname;

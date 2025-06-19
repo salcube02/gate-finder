@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { store } from "../../store/store";
 import ScrollToTop from "@/components/common/ScrollTop";
 import IntlProvider from '@/components/providers/IntlProvider';
+import FontManager from '@/components/common/FontManager';
 
 export default function ClientLayout({ locale, children }) {
   const isRTL = locale === 'ar';
@@ -27,6 +28,7 @@ export default function ClientLayout({ locale, children }) {
   return (
     <Provider store={store}>
       <IntlProvider locale={locale}>
+        <FontManager locale={locale} />
         {children}
         <ScrollToTop />
       </IntlProvider>

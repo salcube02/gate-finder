@@ -80,7 +80,7 @@ const FeaturedProperties = () => {
             </ul>
             {/* End .icon */}
 
-            <Link href={`/listing-details-v1/${item.id}`} className="fp_price">
+            <Link href={`${currentLocale}/listing-details-v1/${item.id}`} className="fp_price">
               ${item.price}
               {/* <small>/mo</small> */}
             </Link>
@@ -92,7 +92,7 @@ const FeaturedProperties = () => {
           <div className="tc_content">
             <p className="text-thm">{item.type}</p>
             <h4>
-              <Link href={`/listing-details-v1/${item.id}`}>{item.title}</Link>
+              <Link href={`${currentLocale}/listing-details-v1/${item.id}`}>{item.title}</Link>
             </h4>
             <p>
               <span className="flaticon-placeholder"></span>

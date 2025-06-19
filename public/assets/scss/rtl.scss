@@ -1,10 +1,12 @@
 /* RTL Styles for Arabic Language */
 
-html[dir="rtl"] {
+/* Font management is now handled by body classes arabic-font and english-font */
+/* These rules are kept for backward compatibility */
+html[dir="rtl"]:not(.arabic-font):not(.english-font) {
   font-family: 'Tajawal', 'Poppins', sans-serif !important;
 }
 
-html[dir="ltr"] {
+html[dir="ltr"]:not(.arabic-font):not(.english-font) {
   font-family: 'Poppins', sans-serif !important;
 }
 
